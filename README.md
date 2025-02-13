@@ -1,0 +1,47 @@
+# The Legend of Beef
+
+## Todo List
+- Mainmenu
+  - Characterselect
+  - Levelselect
+  - Options
+- Mechanics
+  - Characters
+  - Camera movement
+    - Keep players in view
+  - Allies
+    - Turrets?
+    - Walls
+  - Monsters
+    - Different movesets
+    - Shooting?
+    - Spawn areas
+  - BEER TIME
+    - Voting
+    - Pause
+    - Powerups?
+  - Items
+    - Health pickups
+    - Shield
+  - Weapons
+    - Sword?
+  - GUI
+    - Player stats
+      - Health
+      - Name
+      - Weapon
+      - Icon
+      - Timer?
+      - Beercount?
+- Levels
+  - Boundaries
+  - Stage hazards?
+- Sound
+  - Effects
+  - Background music
+- graphics
+  - sprites
+  - background
+  - Logo
+  - Items
+  - Playerfaces
