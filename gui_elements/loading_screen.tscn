@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4aa8bxrnjxoy"]
+
+[ext_resource type="Script" path="res://loading_screen.gd" id="1_pfr7j"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_pfr7j")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 541.0
+offset_top = 281.0
+offset_right = 545.0
+offset_bottom = 308.0
+
+[node name="TipsLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="scene_loaded" from="." to="." method="_on_scene_loaded"]

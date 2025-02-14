@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://xe5iexle8arn"]
+[gd_scene load_steps=6 format=3 uid="uid://xe5iexle8arn"]
 
-[ext_resource type="Script" path="res://enemy_1_behaviour.gd" id="1_4vwjn"]
+[ext_resource type="Script" path="res://enemies/enemy_1_behaviour.gd" id="1_4vwjn"]
+[ext_resource type="Texture2D" uid="uid://cvebgd4022yaw" path="res://assets/sprites/monsters.png" id="2_pl6l5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_705dk"]
+blend_mode = 2
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iybtg"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ars7v"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72b4m"]
+size = Vector2(30, 21)
 
 [node name="Enemy1" type="RigidBody2D"]
 collision_layer = 2
@@ -20,12 +23,26 @@ linear_damp = 1.0
 script = ExtResource("1_4vwjn")
 speed = 10.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="shadow" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 1
+material = SubResource("CanvasItemMaterial_705dk")
+position = Vector2(0, 11)
+scale = Vector2(1.1, 0.3)
+texture = ExtResource("2_pl6l5")
+region_enabled = true
+region_rect = Rect2(160, 128, 32, 32)
+
+[node name="monster" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
 material = SubResource("CanvasItemMaterial_iybtg")
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_ars7v")
+texture = ExtResource("2_pl6l5")
+region_enabled = true
+region_rect = Rect2(160, 128, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_72b4m")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

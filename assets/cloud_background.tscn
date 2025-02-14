@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://cs16bg3i2gt8h"]
+
+[ext_resource type="Texture2D" uid="uid://dkybpg7t1j1bq" path="res://assets/clouds/Clouds/Clouds 1/1.png" id="1_srmtg"]
+[ext_resource type="Texture2D" uid="uid://deerxmv4tcte8" path="res://assets/clouds/Clouds/Clouds 1/2.png" id="2_33o88"]
+[ext_resource type="Texture2D" uid="uid://dr2ejxphshpdq" path="res://assets/clouds/Clouds/Clouds 1/3.png" id="3_fykag"]
+[ext_resource type="Texture2D" uid="uid://ds1w2o37dfa3a" path="res://assets/clouds/Clouds/Clouds 1/4.png" id="4_0kw43"]
+
+[sub_resource type="Animation" id="Animation_wwh3p"]
+resource_name = "cloud_move"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/layer3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1000, -100), Vector2(1000, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/layer4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.03333, 8.96667, 10),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(5, 0), Vector2(-2, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/layer2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.03333, 8.96667, 10),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-5, 0), Vector2(-2, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5dbnd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/layer4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/layer3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, -35.978)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/layer2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpiw"]
+_data = {
+"RESET": SubResource("Animation_5dbnd"),
+"cloud_move": SubResource("Animation_wwh3p")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_kvpiw")
+}
+
+[node name="layer1" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.10764, 2.51543)
+texture = ExtResource("1_srmtg")
+centered = false
+
+[node name="layer2" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.10764, 2.51543)
+texture = ExtResource("2_33o88")
+centered = false
+
+[node name="layer3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1000, -100)
+scale = Vector2(2.10764, 2.51543)
+texture = ExtResource("3_fykag")
+centered = false
+
+[node name="layer4" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.10764, 2.51543)
+texture = ExtResource("4_0kw43")
+centered = false

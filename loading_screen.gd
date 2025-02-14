@@ -9,12 +9,13 @@ var progress = [0.0] # Initialize with a default value
 var loaded_scene: PackedScene
 @onready var progress_label: Label = $RichTextLabel/ProgressLabel
 @onready var screenshot_bg: TextureRect = $ScreenshotBg
-@onready var tips_label: Label = $TipsLabel
+#@onready var tips_label: Label = $TipsLabel
 
 @export var load_screen_tips:Array[String]
 
 func _ready() -> void:
-	tips_label.text = load_screen_tips.pick_random()
+	#tips_label.text = load_screen_tips.pick_random()
+	pass
 
 func _process(delta: float) -> void:
 	if next_scene_path == "":
@@ -44,3 +45,8 @@ func start_loading_scene(path: String):
 	### 6mb game file naw man
 	
 	ResourceLoader.load_threaded_request(next_scene_path)
+
+
+func _on_scene_loaded() -> void:
+	print("yes")
+	pass # Replace with function body.

@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://be0norc6obxew"]
+
+[ext_resource type="PackedScene" uid="uid://cs16bg3i2gt8h" path="res://assets/cloud_background.tscn" id="1_pi5gf"]
+[ext_resource type="Script" path="res://assets/cloud_background.gd" id="2_1lffc"]
+[ext_resource type="Script" path="res://start_button.gd" id="2_bs8sx"]
+[ext_resource type="Theme" uid="uid://bdphv6f7bl5o1" path="res://theme/theme.tres" id="5_is0wl"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("1_pi5gf")]
+script = ExtResource("2_1lffc")
+
+[node name="StartButton" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 423.0
+offset_top = 574.0
+offset_right = 594.0
+offset_bottom = 650.0
+theme = ExtResource("5_is0wl")
+theme_override_font_sizes/font_size = 32
+text = "Start"
+script = ExtResource("2_bs8sx")
+
+[node name="OptionButton" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 653.0
+offset_top = 575.0
+offset_right = 827.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 288.0
+offset_top = 266.0
+offset_right = 975.0
+offset_bottom = 342.0
+theme_override_colors/font_color = Color(0.862292, 0.609876, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.383353, 0.64559, 0.933966, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 82
+text = "The Legend of Beef
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
