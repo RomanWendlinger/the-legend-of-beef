@@ -3,10 +3,21 @@
 ## Todo List
 - Mainmenu
   - Characterselect
+    - Controller select
+      - Button1 to join
+      - button2 to leave
+    - Character select
+      - left right to swap a ring menu?0
   - Levelselect
   - Options
+- Leaderboard
+  - Players over every match
+  - Crown for first Place
+  - Doodoo for last Place
 - Mechanics
   - Characters
+    - Global autoload character/player singleton
+    - Spawn players on level load with correct controls
   - Camera movement
     - Keep players in view
   - Allies
@@ -26,6 +37,7 @@
   - Weapons
     - Sword?
   - GUI
+    - Button Icons all over the place
     - Player stats
       - Health
       - Name
