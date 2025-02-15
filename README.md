@@ -1,53 +1,62 @@
 # The Legend of Beef
 
 ## Todo List
-- Mainmenu
+- Mainmenu + 
   - Characterselect
-    - Controller select
-      - Button1 to join
-      - button2 to leave
-    - Character select
-      - left right to swap a ring menu?0
+	- Controller select + 
+	  - Button1 to join + 
+	  - button2 to leave
+	- Character select
+	  - left right to swap a ring menu?
   - Levelselect
   - Options
+	- Sound
+	- Music
 - Leaderboard
   - Players over every match
   - Crown for first Place
   - Doodoo for last Place
 - Mechanics
   - Characters
-    - Global autoload character/player singleton
-    - Spawn players on level load with correct controls
+	- Global autoload character/player singleton
+	- Spawn players on level load with correct controls
+	- animate
+	- turn sprite on turn
   - Camera movement
-    - Keep players in view
+	- Keep players in view
   - Allies
-    - Turrets?
-    - Walls
+	- Turrets?
+	- Walls
   - Monsters
-    - Different movesets
-    - Shooting?
-    - Spawn areas
+	- Different movesets
+	- Shooting?
+	- Spawn areas
   - BEER TIME
-    - Voting
-    - Pause
-    - Powerups?
+	- Voting
+	- Pause
+	- Powerups?
   - Items
-    - Health pickups
-    - Shield
+	- Health pickups
+	- Shield
   - Weapons
-    - Sword?
+	- Sword?
   - GUI
-    - Button Icons all over the place
-    - Player stats
-      - Health
-      - Name
-      - Weapon
-      - Icon
-      - Timer?
-      - Beercount?
+	- Button Icons all over the place
+	- Player stats
+	  - Health
+	  - Name
+	  - Weapon
+	  - Icon
+	  - Timer?
+	  - Beercount?
 - Levels
-  - Boundaries
+  - spawn in animation
+  - start timer
+  - scale?
+  - better background color theme
+  - Boundaries + 
   - Stage hazards?
+  - stage velocities
 - Sound
   - Effects
   - Background music
@@ -57,3 +66,11 @@
   - Logo
   - Items
   - Playerfaces
+  - System for color coding!
+
+# Checks
+ - move animation state from one scene to the next? mainmenu -> character select
+ - classes for players?
+ - dynamic property names -> get(string)
+ - dynamic function/methods -> call(string)
+ - Array index in loop -> not easy, probably better to stay at 0 indexed or other stuff

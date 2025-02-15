@@ -2,6 +2,16 @@ extends Node
 
 # max 4 players
 # every player has a corner for their stats?
+# Stats needed?
+# create internal class?
+# - Health
+# - Weapons array
+# - some timeouts ?
+# - spawner function
+# - state mask (dead/alive/tumble/invincible/rolling?)
+# - is_active bool
+# - Voting state
+# 
  
 var player1_active := false
 var player2_active := false

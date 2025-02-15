@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2crpiul8jrni"]
 
-[ext_resource type="Script" path="res://gui_elements/player_select.gd" id="1_nfhx3"]
-[ext_resource type="StyleBox" uid="uid://db1765yg65ypq" path="res://theme/button_default.tres" id="2_3b6tj"]
-[ext_resource type="PackedScene" uid="uid://cs16bg3i2gt8h" path="res://assets/cloud_background.tscn" id="2_exube"]
+[ext_resource type="Script" path="res://gui_elements/player_select_screen.gd" id="1_wnmye"]
+[ext_resource type="StyleBox" uid="uid://db1765yg65ypq" path="res://theme/button_default.tres" id="2_mpwbx"]
+[ext_resource type="PackedScene" uid="uid://cs16bg3i2gt8h" path="res://assets/cloud_background.tscn" id="3_033st"]
 
 [node name="PlayerSelect" type="Control"]
 texture_filter = 1
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nfhx3")
+script = ExtResource("1_wnmye")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 z_index = 1
@@ -50,7 +50,7 @@ horizontal_alignment = 1
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_3b6tj")
+theme_override_styles/normal = ExtResource("2_mpwbx")
 text = "Press L1 to join"
 horizontal_alignment = 1
 
@@ -82,9 +82,12 @@ horizontal_alignment = 1
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_3b6tj")
+theme_override_styles/normal = ExtResource("2_mpwbx")
 text = "Press R1 to join"
 horizontal_alignment = 1
+
+[node name="ProgressBar2" type="ProgressBar" parent="VBoxContainer/row/col2/row1/VBoxContainer"]
+layout_mode = 2
 
 [node name="row2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -116,9 +119,12 @@ horizontal_alignment = 1
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_3b6tj")
+theme_override_styles/normal = ExtResource("2_mpwbx")
 text = "Press L1 to join"
 horizontal_alignment = 1
+
+[node name="ProgressBar3" type="ProgressBar" parent="VBoxContainer/row2/col1/row1/VBoxContainer"]
+layout_mode = 2
 
 [node name="col2" type="HBoxContainer" parent="VBoxContainer/row2"]
 layout_direction = 2
@@ -146,8 +152,11 @@ horizontal_alignment = 1
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_3b6tj")
+theme_override_styles/normal = ExtResource("2_mpwbx")
 text = "Press R1 to join"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" parent="." instance=ExtResource("2_exube")]
+[node name="ProgressBar4" type="ProgressBar" parent="VBoxContainer/row2/col2/row1/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("3_033st")]
