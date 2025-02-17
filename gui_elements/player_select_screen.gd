@@ -47,10 +47,10 @@ func _input(event: InputEvent) -> void:
 	manage_button_actions(2)
 	
 	#handle player 3 input
-	manage_button_actions(3)
+	#manage_button_actions(3)
 	
 	#handle player 4 input
-	manage_button_actions(4)
+	#manage_button_actions(4)
 
 	
 func player_ready(playerNumber: int) -> void:
@@ -63,7 +63,7 @@ func player_ready(playerNumber: int) -> void:
 func manage_button_actions(player_number: int) -> void:
 	#handle player 1 input
 	if Input.is_action_pressed("P"+str(player_number)+" button 1"):
-		if PlayerManager.get("player"+str(player_number)+"_active"):
+		if PlayerManager.active_players.has(player_number):
 			# hold to play mechanic
 			#timer already running?
 			if timerArray[player_number] and not timerArray[player_number].is_stopped():
@@ -80,7 +80,7 @@ func manage_button_actions(player_number: int) -> void:
 			#set it active
 			player_ready(player_number)
 	else:
-		if PlayerManager.get("player"+str(player_number)+"_active"):
+		if PlayerManager.active_players.has(player_number):
 			# hold to play mechanic
 			# remove timer
 			if timerArray[player_number]:

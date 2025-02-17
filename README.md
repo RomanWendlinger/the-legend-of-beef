@@ -1,6 +1,20 @@
 # The Legend of Beef
 
 ## Todo List
+- Gameplay Loop
+	- Survive
+		- fixed time?
+			-> if at least 1 survives until time -> round over in good
+		- Fight enemies
+			-> pickup one weapon.
+	- die
+		-> revive with beer time!
+		-> if all die, round over in bad
+	- round over 
+		-> move to leaderboard
+			-> cheer with beer!
+			-> try again, change mode
+		
 - Mainmenu + 
   - Characterselect
 	- Controller select + 
@@ -16,6 +30,10 @@
   - Players over every match
   - Crown for first Place
   - Doodoo for last Place
+  	- stats: 
+		- Deaths?
+		- Kills?
+		- Damage?
 - Mechanics
   - Characters
 	- Global autoload character/player singleton
@@ -31,6 +49,12 @@
 	- Different movesets
 	- Shooting?
 	- Spawn areas
+		- Thrown in the cage?
+			-> start animation without movement
+			-> random place
+			-> indicator where it lands?
+				-> red circle with shadow that gets bigger?
+		- Spawn hub?
   - BEER TIME
 	- Voting
 	- Pause
@@ -53,7 +77,7 @@
 	  - Weapon
 	  - Icon
 	  - Timer?
-	  - Beercount?
+	  - Beercount!
 	  - Beerlevel!
 - Levels
   - spawn in animation
@@ -80,3 +104,27 @@
  - dynamic property names -> get(string)
  - dynamic function/methods -> call(string)
  - Array index in loop -> not easy, probably better to stay at 0 indexed or other stuff
+
+## Global scripts
+scene_switcher -> loading only scenes
+player_manager -> checks for inputs, manages active players and emits signals for players and player stuff
+gui_manager -> is invoked via player_manager signals so far
+camera_control -> positioned inside the map scenes currently. is updated when players are spawned
+
+## order sketch
+
+```mermaid
+graph TD;
+	mainmenu-->playerselect;
+	mainmenu-->options;
+	playerselect--players selecting-->map1;
+	playerselect--give player information-->player_manager;
+	map1--start spawning players-->player_manager;
+	spawning_players("Players spawning signal");
+	player_manager--emitting-->spawning_players;
+	spawning_players-->gui_manager;
+	spawning_players-->camera_control;
+	spawning_players-->gameplay_loop((gameplay_loop));
+
+	
+```

@@ -3,10 +3,13 @@ extends CharacterBody2D
 class_name Player
 
 signal health_update
+signal player_died
+signal player_revived
 
 @export_group("Survival")
 @export var health := 100.0
 @export var max_health := 140.0
+@export var is_dead := false
 
 @export_group("Movement")
 @export var speed := 100.0
@@ -16,16 +19,18 @@ signal health_update
 @export var pushback_recover_speed := 3
 
 var player_number : int
+var shadowNode: Sprite2D
+var spriteNode: Sprite2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("we spawned")
+	shadowNode = get_node("Shadow")
+	spriteNode = get_node("Character")
 	pass # Replace with function body.
 	
 func _input(event: InputEvent) -> void:
-	if event is InputEventAction:
-		print("Action event: ", event.strength, event.action, event.pressed)
+	pass
 
 	
 func _physics_process(delta: float) -> void:
@@ -39,15 +44,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = clamp(velocity.x, -speed *2.0, speed *2.0)
 		velocity.y = clamp(velocity.y, -speed *2.0, speed *2.0)
 	if not is_pushed_back:
-		velocity = direction * speed * delta
+		if not is_dead:
+			velocity = direction * speed * delta
+		else:
+			velocity = direction * 0 * delta
 		
 	var contact = move_and_collide(velocity)
 	if contact:
-		print("contact")
 		var collider =  contact.get_collider()
 		print(collider)
 		if collider is RigidBody2D:
-			print("is rigid body")
 			collider.constant_force = Vector2.ZERO
 			collider.apply_impulse(global_position.direction_to(collider.global_position) * pushback_strength)
 		else:
@@ -57,11 +63,28 @@ func _physics_process(delta: float) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if velocity.x > 0 :
+		shadowNode.flip_h = true
+		spriteNode.flip_h = true
+	if velocity.x < 0:
+		shadowNode.flip_h = false
+		spriteNode.flip_h = false
+	if is_dead:
+		spriteNode.rotation = 90.0
+	if is_dead == false:
+		spriteNode.rotation = 0
 
 func take_damage(damage: float) -> void:
-	health -= damage
-	health_update.emit()
+	# cant kill whats already dead
+	if not is_dead:
+		health = clamp(health - damage, 0, max_health)
+		health_update.emit()
+		
+		if health <= 0:
+			health = 0
+			is_dead = true
+			player_died.emit()
+
 	
 func push_back(direction: Vector2) -> void:
 	is_pushed_back = true

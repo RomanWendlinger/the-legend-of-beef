@@ -9,18 +9,18 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func create_player_panels() -> void:
-	print("CREATING PLAYER PANELS")
 	player_gui_node = load("res://gui_elements/player_gui.tscn").instantiate();
 	get_tree().root.add_child(player_gui_node)
 	player1_health_bar = player_gui_node.get_node("Player1Box/Player1HealthBar")
 	print("p1healthbar: ", player1_health_bar)
-	PlayerManager.player1_gui_update.connect(player1_gui_update)
+	print("wanted signal: ", PlayerManager.players_spawned)
+	PlayerManager.gui_update.connect(player_gui_update)
 	pass
 
-func player1_gui_update() -> void:
-	print("GUIManager: p1 gui update: ")
-	player1_health_bar.max_value = PlayerManager.player1.max_health
-	player1_health_bar.value = PlayerManager.player1.health
+func player_gui_update(player_number: int) -> void:
+	print("player_number: ",player_number);
+	player1_health_bar.max_value = PlayerManager.player_dict[str(player_number)].max_health
+	player1_health_bar.value = PlayerManager.player_dict[str(player_number)].health
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

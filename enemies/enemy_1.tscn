@@ -22,6 +22,11 @@ max_contacts_reported = 50
 linear_damp = 1.0
 script = ExtResource("1_4vwjn")
 speed = 10.0
+max_speed = null
+target_dir = null
+state_pushed_back = null
+max_pushback_speed = null
+damage = null
 
 [node name="shadow" type="Sprite2D" parent="."]
 texture_filter = 2
