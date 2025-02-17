@@ -42,10 +42,21 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	#handle player 1 input
 	manage_button_actions(1)
+	
+	#handle player 2 input
+	manage_button_actions(2)
+	
+	#handle player 3 input
+	manage_button_actions(3)
+	
+	#handle player 4 input
+	manage_button_actions(4)
 
 	
-func player1_ready(playerNumber: int, press_label: Label, text_label: Label) -> void:
-	press_label.text = "hold L1 to start"
+func player_ready(playerNumber: int) -> void:
+	var press_label = get("p"+str(playerNumber)+"PressLabel")
+	var text_label = get("p"+str(playerNumber)+"Label")
+	press_label.text = "hold Button to start"
 	text_label.text = "NOICE"
 	PlayerManager.set_player_active(playerNumber, true)
 	
@@ -67,9 +78,9 @@ func manage_button_actions(player_number: int) -> void:
 				timerArray[player_number].timeout.connect(start_next_level)
 		else:
 			#set it active
-			player1_ready(1, p1PressLabel, p1Label)
+			player_ready(player_number)
 	else:
-		if PlayerManager.player1_active:
+		if PlayerManager.get("player"+str(player_number)+"_active"):
 			# hold to play mechanic
 			# remove timer
 			if timerArray[player_number]:

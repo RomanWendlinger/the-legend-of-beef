@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
+class_name Player
+
+signal health_update
+
 @export_group("Survival")
 @export var health := 100.0
+@export var max_health := 140.0
 
 @export_group("Movement")
 @export var speed := 100.0
@@ -10,9 +15,12 @@ extends CharacterBody2D
 @export var pushback_dampening := 0.4
 @export var pushback_recover_speed := 3
 
+var player_number : int
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("we spawned")
 	pass # Replace with function body.
 	
 func _input(event: InputEvent) -> void:
@@ -21,7 +29,7 @@ func _input(event: InputEvent) -> void:
 
 	
 func _physics_process(delta: float) -> void:
-	var direction =Input.get_vector("P1 stick left","P1 stick right", "P1 stick up", "P1 stick down");
+	var direction =Input.get_vector("P"+str(player_number)+" stick left","P"+str(player_number)+" stick right", "P"+str(player_number)+" stick up", "P"+str(player_number)+" stick down");
 	direction.normalized()
 	#if pushback is belov recovery speed (knockback speed), give back control
 	if velocity.length() < pushback_recover_speed:
@@ -53,6 +61,7 @@ func _process(delta: float) -> void:
 
 func take_damage(damage: float) -> void:
 	health -= damage
+	health_update.emit()
 	
 func push_back(direction: Vector2) -> void:
 	is_pushed_back = true

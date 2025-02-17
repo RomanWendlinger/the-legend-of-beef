@@ -13,6 +13,9 @@ var targeted_player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	getNearestPlayer()
+	var recheck_timer = Timer.new()
+	recheck_timer.timeout.connect(getNearestPlayer)
+	get_tree().root.add_child(recheck_timer)
 	pass # Replace with function body.
 
 
@@ -28,20 +31,20 @@ func _process(delta: float) -> void:
 	
 func getNearestPlayer():
 	var player_characters = get_tree().get_nodes_in_group("player_character")
+	print("players: ", player_characters.size())
 	if not player_characters.is_empty(): 
-		print(player_characters)
 		var closestPlayer = player_characters.reduce(returnClosestLocation)
 		targeted_player = closestPlayer
-		print("closest player: ", closestPlayer.get_global_position())
 	
 
-func returnClosestLocation(bestFetch: Area2D, newContender: Area2D):
-	print("monster position: ", get_global_position(), "player new position: ", newContender.get_global_position(), "player bestFetch position: ", bestFetch.get_global_position())
-	return bestFetch
+func returnClosestLocation(bestFetch: Player, newContender: Player):
+	if global_position.distance_to(bestFetch.global_position) < global_position.distance_to(newContender.global_position):
+		return bestFetch
+	return newContender
 
 
 func _on_body_entered(body: Node) -> void:
-	if body is CharacterBody2D:
+	if body is Player:
 		body.take_damage(damage)
 		body.push_back(global_position.direction_to(body.global_position).normalized() * (linear_velocity.length() / mass ))
 	

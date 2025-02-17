@@ -1,11 +1,9 @@
-extends Node
+extends Node2D
 
-
-@export var max_health := 100.0
-@export var health := 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerManager.spawn_active_players()
 	pass # Replace with function body.
 
 

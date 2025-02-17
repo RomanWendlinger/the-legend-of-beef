@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt2ynexp2bmop"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ylwy1"]
+font_size = 32
+outline_size = 4
+outline_color = Color(0.148439, 0.0980796, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2l5uk"]
+bg_color = Color(0.965796, 0.229947, 0.231602, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0218638, 0.179572, 0.309365, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flegn"]
+bg_color = Color(0, 0.957433, 0.44874, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.0218638, 0.179572, 0.309365, 1)
+
+[node name="PlayerGUI" type="CanvasLayer"]
+
+[node name="Player1Box" type="VBoxContainer" parent="."]
+offset_left = 48.0
+offset_top = 38.0
+offset_right = 206.0
+offset_bottom = 102.0
+
+[node name="Label1" type="Label" parent="Player1Box"]
+texture_filter = 1
+layout_mode = 2
+text = "Player 1"
+label_settings = SubResource("LabelSettings_ylwy1")
+
+[node name="Player1HealthBar" type="ProgressBar" parent="Player1Box"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_2l5uk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_flegn")
+max_value = 120.0
+value = 100.0
+show_percentage = false
+
+[node name="Player1Box2" type="VBoxContainer" parent="."]
+offset_left = 995.0
+offset_top = 31.0
+offset_right = 1167.0
+offset_bottom = 95.0
+alignment = 2
+
+[node name="Label1" type="Label" parent="Player1Box2"]
+texture_filter = 1
+layout_mode = 2
+text = "Player 2"
+label_settings = SubResource("LabelSettings_ylwy1")
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player1Box2"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Player1Box2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Health: "
+label_settings = SubResource("LabelSettings_ylwy1")
+
+[node name="Health1" type="Label" parent="Player1Box2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "100
+"
+label_settings = SubResource("LabelSettings_ylwy1")

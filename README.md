@@ -35,6 +35,10 @@
 	- Voting
 	- Pause
 	- Powerups?
+	- Beer fatique!
+		- hold B2 to raise hand
+		- min 2 players must accept
+		- beer pause
   - Items
 	- Health pickups
 	- Shield
@@ -45,10 +49,12 @@
 	- Player stats
 	  - Health
 	  - Name
+	  - Beer Fatique
 	  - Weapon
 	  - Icon
 	  - Timer?
 	  - Beercount?
+	  - Beerlevel!
 - Levels
   - spawn in animation
   - start timer
