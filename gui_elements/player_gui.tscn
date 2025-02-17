@@ -40,7 +40,6 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_styles/background = SubResource("StyleBoxFlat_2l5uk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_flegn")
-max_value = 120.0
 value = 100.0
 show_percentage = false
 

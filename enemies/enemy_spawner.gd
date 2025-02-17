@@ -5,25 +5,28 @@ extends Node
 @export var enemy_tscn_files :Array[PackedScene]
 var remaining_respawn_time = 0.4
 var rng : RandomNumberGenerator
-
+var let_the_dogs_out := false
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rng = RandomNumberGenerator.new()
+	PlayerManager.players_spawned.connect(func(): let_the_dogs_out = true)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if(let_the_dogs_out):
 	#substract time delta aka count down
-	remaining_respawn_time -= delta
-	#if we hit 0
-	if remaining_respawn_time < 0:
-		remaining_respawn_time = respawn_timer
-		spawn_enemy_tscn()
-		
+		remaining_respawn_time -= delta
+		#if we hit 0
+		if remaining_respawn_time < 0:
+			remaining_respawn_time = respawn_timer
+			spawn_enemy_tscn()
+			
 	
 func spawn_enemy_tscn() -> void:
 	print("Spawning enemy tscn")
