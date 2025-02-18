@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt2ynexp2bmop"]
+[gd_scene load_steps=5 format=3 uid="uid://dt2ynexp2bmop"]
+
+[ext_resource type="Theme" uid="uid://bdphv6f7bl5o1" path="res://theme/theme.tres" id="1_4wavi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ylwy1"]
 font_size = 32
@@ -22,54 +24,168 @@ border_color = Color(0.0218638, 0.179572, 0.309365, 1)
 
 [node name="PlayerGUI" type="CanvasLayer"]
 
-[node name="Player1Box" type="VBoxContainer" parent="."]
-offset_left = 48.0
-offset_top = 38.0
-offset_right = 206.0
-offset_bottom = 102.0
+[node name="Global" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Label1" type="Label" parent="Player1Box"]
+[node name="ColLeft" type="HBoxContainer" parent="Global"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RowTop" type="VBoxContainer" parent="Global/ColLeft"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Global/ColLeft/RowTop"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_4wavi")
+
+[node name="Player1Box" type="VBoxContainer" parent="Global/ColLeft/RowTop/MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player1Name" type="Label" parent="Global/ColLeft/RowTop/MarginContainer/Player1Box"]
 texture_filter = 1
 layout_mode = 2
 text = "Player 1"
 label_settings = SubResource("LabelSettings_ylwy1")
 
-[node name="Player1HealthBar" type="ProgressBar" parent="Player1Box"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Global/ColLeft/RowTop/MarginContainer/Player1Box"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Player1HealthBar" type="ProgressBar" parent="Global/ColLeft/RowTop/MarginContainer/Player1Box/HBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_2l5uk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_flegn")
 value = 100.0
 show_percentage = false
 
-[node name="Player1Box2" type="VBoxContainer" parent="."]
-offset_left = 995.0
-offset_top = 31.0
-offset_right = 1167.0
-offset_bottom = 95.0
+[node name="Container" type="Container" parent="Global/ColLeft/RowTop"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Global/ColLeft/RowTop"]
+layout_mode = 2
+theme = ExtResource("1_4wavi")
+
+[node name="Player3Box" type="VBoxContainer" parent="Global/ColLeft/RowTop/MarginContainer2"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Global/ColLeft/RowTop/MarginContainer2/Player3Box"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Player3HealthBar" type="ProgressBar" parent="Global/ColLeft/RowTop/MarginContainer2/Player3Box/HBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_2l5uk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_flegn")
+value = 100.0
+show_percentage = false
+
+[node name="Player3Name" type="Label" parent="Global/ColLeft/RowTop/MarginContainer2/Player3Box"]
+texture_filter = 1
+layout_mode = 2
+text = "Player 3
+"
+label_settings = SubResource("LabelSettings_ylwy1")
+
+[node name="ColRight" type="HBoxContainer" parent="Global"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RowTop2" type="VBoxContainer" parent="Global/ColRight"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Global/ColRight/RowTop2"]
+layout_mode = 2
+theme = ExtResource("1_4wavi")
+
+[node name="Player2Box" type="VBoxContainer" parent="Global/ColRight/RowTop2/MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
 alignment = 2
 
-[node name="Label1" type="Label" parent="Player1Box2"]
+[node name="Player2Name" type="Label" parent="Global/ColRight/RowTop2/MarginContainer/Player2Box"]
 texture_filter = 1
 layout_mode = 2
 text = "Player 2"
 label_settings = SubResource("LabelSettings_ylwy1")
 horizontal_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player1Box2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Global/ColRight/RowTop2/MarginContainer/Player2Box"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="Player2HealthBar" type="ProgressBar" parent="Global/ColRight/RowTop2/MarginContainer/Player2Box/HBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_2l5uk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_flegn")
+value = 100.0
+show_percentage = false
+
+[node name="Container2" type="Container" parent="Global/ColRight/RowTop2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Global/ColRight/RowTop2"]
+layout_mode = 2
+theme = ExtResource("1_4wavi")
+
+[node name="Player4Box" type="VBoxContainer" parent="Global/ColRight/RowTop2/MarginContainer2"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
 alignment = 2
 
-[node name="Label" type="Label" parent="Player1Box2/HBoxContainer"]
-texture_filter = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="Global/ColRight/RowTop2/MarginContainer2/Player4Box"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-text = "Health: "
-label_settings = SubResource("LabelSettings_ylwy1")
+size_flags_horizontal = 8
+size_flags_vertical = 3
 
-[node name="Health1" type="Label" parent="Player1Box2/HBoxContainer"]
+[node name="Player4HealthBar" type="ProgressBar" parent="Global/ColRight/RowTop2/MarginContainer2/Player4Box/HBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_2l5uk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_flegn")
+value = 100.0
+show_percentage = false
+
+[node name="Player4Name" type="Label" parent="Global/ColRight/RowTop2/MarginContainer2/Player4Box"]
 texture_filter = 1
 layout_mode = 2
-text = "100
+text = "Player 4
 "
 label_settings = SubResource("LabelSettings_ylwy1")
+horizontal_alignment = 2

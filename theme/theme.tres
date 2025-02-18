@@ -14,3 +14,7 @@ Button/font_sizes/font_size = 16
 Button/styles/focus = ExtResource("1_omc1r")
 Button/styles/hover = ExtResource("2_gw4il")
 Button/styles/normal = ExtResource("3_ytln0")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10

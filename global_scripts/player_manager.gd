@@ -44,29 +44,20 @@ func get_player_refs() -> Array:
 		retArray.append(player_dict[str(player_number)])
 	return retArray
 	
-# SPAWN POINTS
-# p1 x250y200
-	
 func spawn_active_players() -> void:
-	print("active players: ",active_players)
 	#spawn em in
 	for player_number in active_players:
-		await reduce_spawn_players(0, player_number)
+		await animate_spawn_players(player_number)
 	for player_number in active_players:
 		PlayerManager.player_dict[str(player_number)].is_frozen = false
-		   
 	players_spawned.emit()
 	
-#return 0 when the animation is done, test
-func reduce_spawn_players(zero: int, next_player_number: int) -> void :
-	print("nex player: ", next_player_number)
-	var player_node: Player = spawn_player(next_player_number);
-	print("player spawned: ", next_player_number)
+# spawn in and animate
+func animate_spawn_players(player_number: int) -> void :
+	var player_node: Player = spawn_player(player_number);
 	var anim_node:AnimationPlayer = player_node.get_node("AnimationPlayer")
-	print("animnode: ", anim_node )
 	anim_node.play("spawning")
 	await anim_node.animation_finished
-	print("post await")
 	return 
 
 func spawn_player(player_number: int) -> Player:
@@ -83,5 +74,11 @@ func get_spawn_position_for_player(player_number: int) -> Vector2:
 	match player_number:
 		1:
 			return Vector2(400, 400)
-		_:
+		2:
 			return Vector2(450, 400)
+		3: 
+			return Vector2(500, 400)
+		4: 
+			return Vector2(550, 400)
+		_:
+			return Vector2(500, 350)
