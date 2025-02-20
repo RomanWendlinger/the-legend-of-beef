@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmb7unmimmacc"]
+
+[ext_resource type="Texture2D" uid="uid://0m1ms7uppkaf" path="res://assets/bottles/beer/beer_background.png" id="1_k76ck"]
+[ext_resource type="Texture2D" uid="uid://m4102s6jvxf1" path="res://assets/bottles/beer/beer_outline.png" id="2_l4r11"]
+[ext_resource type="Theme" uid="uid://bdphv6f7bl5o1" path="res://theme/theme.tres" id="3_xvtpo"]
+
+[node name="BeerBottle" type="Node2D"]
+
+[node name="BeerBackground" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.611)
+texture = ExtResource("1_k76ck")
+
+[node name="BeerOutline" type="Sprite2D" parent="."]
+texture = ExtResource("2_l4r11")
+
+[node name="BeerProgress" type="TextureProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_xvtpo")
+theme_type_variation = &"beer"
+value = 80.0
+fill_mode = 3
+texture_progress = ExtResource("1_k76ck")
+tint_progress = Color(1, 0.837126, 0.260606, 1)

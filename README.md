@@ -19,6 +19,7 @@
   - Characterselect
 	- Controller select + 
 	  - Button1 to join + 
+	  - left-right to adjust usual beer time ~5min steps
 	  - button2 to leave
 	- Character select
 	  - left right to swap a ring menu?

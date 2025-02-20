@@ -35,6 +35,8 @@ project/assembly_name="The Legend of Beef"
 
 player_character="Playable or allied character; the good guys"
 enemy_character="enemy characters; the bad guys, mobs"
+gui_player_health=""
+gui_player_box=""
 
 [gui]
 

@@ -33,10 +33,9 @@ func _ready() -> void:
 	active_players = []
 	
 func set_player_active(playernumber: int, active: bool):
+	#add player number to array for easier iterations
 	if not active_players.has(playernumber):
 		active_players.append(playernumber)
-	player_dict[str(playernumber)] = Player.new()
-	player_dict[str(playernumber)].add_to_group("player_character");
 		
 func get_player_refs() -> Array:
 	var retArray = []
@@ -48,25 +47,37 @@ func spawn_active_players() -> void:
 	#spawn em in
 	for player_number in active_players:
 		await animate_spawn_players(player_number)
+	#after animation, let em move
 	for player_number in active_players:
 		PlayerManager.player_dict[str(player_number)].is_frozen = false
 	players_spawned.emit()
 	
 # spawn in and animate
 func animate_spawn_players(player_number: int) -> void :
+	#create character
 	var player_node: Player = spawn_player(player_number);
 	var anim_node:AnimationPlayer = player_node.get_node("AnimationPlayer")
+	# play animation and wait until finished signal
 	anim_node.play("spawning")
 	await anim_node.animation_finished
 	return 
 
+#simply create the character
 func spawn_player(player_number: int) -> Player:
-	var player_node = load("res://players/player.tscn").instantiate()
+	var player_node: Player = load("res://players/player.tscn").instantiate()
+	#every player has his own spawn area
 	player_node.global_position = get_spawn_position_for_player(player_number)
+	#set above background tile
 	player_node.z_index = 1
+	#let em know their position
 	player_node.player_number = player_number
+	#add created character to global dict for easier finding
 	player_dict[str(player_number)] = player_node
-	player_node.health_update.connect(func (): gui_update.emit(1))
+	# SIGNALS
+	#if player gets hit, let the gui also know
+	player_node.health_update.connect(func (): gui_update.emit(player_number))
+	player_node.player_died.connect(func (): player_died.emit(player_number))
+	#add to tree 
 	get_tree().root.add_child(player_node)
 	return player_node
 	
