@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://cou2ykaq10wfo"]
+
+[ext_resource type="Theme" uid="uid://bdphv6f7bl5o1" path="res://theme/theme.tres" id="1_28s4d"]
+[ext_resource type="PackedScene" uid="uid://ehayji4focn3" path="res://players/granny/granny_avatar.tscn" id="2_prdhh"]
+[ext_resource type="PackedScene" uid="uid://cmb7unmimmacc" path="res://gui_elements/beertime/beer_bottle.tscn" id="3_ahvps"]
+[ext_resource type="PackedScene" uid="uid://du3twm8cws7mo" path="res://gui_elements/controller/gui_button_element.tscn" id="4_cr0nc"]
+[ext_resource type="Texture2D" uid="uid://n83sgqdhwxxq" path="res://assets/controller/gdb-keyboard-2.png" id="5_8y5y8"]
+[ext_resource type="Texture2D" uid="uid://b5djdkmtfqfb3" path="res://assets/controller/gdb-xbox-2.png" id="6_1k8p0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7h4pm"]
+line_spacing = 2.0
+font_size = 72
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_umtxb"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_mu006"]
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4on6"]
+atlas = ExtResource("5_8y5y8")
+region = Rect2(320, 528, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1qno"]
+atlas = ExtResource("6_1k8p0")
+region = Rect2(400, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u8ak"]
+atlas = ExtResource("5_8y5y8")
+region = Rect2(320, 544, 16, 16)
+
+[node name="BeerTime" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 129)
+layout_mode = 2
+text = "BEER TIME!"
+label_settings = SubResource("LabelSettings_7h4pm")
+horizontal_alignment = 1
+
+[node name="PlayerWrapper" type="HBoxContainer" parent="VBoxContainer" groups=["gui_beertime_player_wrapper"]]
+layout_mode = 2
+
+[node name="PlayerContainer" type="MarginContainer" parent="VBoxContainer/PlayerWrapper" groups=["gui_beertime_player"]]
+layout_mode = 2
+theme = ExtResource("1_28s4d")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="vbox" type="VBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
+layout_mode = 2
+text = "Player 1"
+label_settings = SubResource("LabelSettings_umtxb")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="GrannyAvatar" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/MarginContainer" instance=ExtResource("2_prdhh")]
+layout_mode = 2
+expand_mode = 5
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer"]
+layout_mode = 2
+
+[node name="BeerBottle" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer2" groups=["gui_beertime_beer"] instance=ExtResource("3_ahvps")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "100%"
+label_settings = SubResource("LabelSettings_mu006")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer" instance=ExtResource("4_cr0nc")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_w4on6")
+current_animation = "arrow_up"
+playing = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonElement" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_cr0nc")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="TextureRect" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_cr0nc")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_r1qno")
+expand_mode = 3
+stretch_mode = 4
+current_animation = "lb"
+frame_index = 2
+playing = true
+
+[node name="TextureRect3" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer" instance=ExtResource("4_cr0nc")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_3u8ak")
+current_animation = "arrow_down"
+playing = true

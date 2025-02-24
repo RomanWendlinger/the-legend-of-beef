@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehayji4focn3"]
+
+[ext_resource type="Texture2D" uid="uid://bt00umqqjq5ji" path="res://assets/sprites/rogues.png" id="1_mfxhd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbc6r"]
+atlas = ExtResource("1_mfxhd")
+region = Rect2(96, 192, 32, 32)
+
+[node name="GrannyAvatar" type="TextureRect"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_kbc6r")

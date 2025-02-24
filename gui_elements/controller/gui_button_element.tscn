@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://du3twm8cws7mo"]
+
+[ext_resource type="Texture2D" uid="uid://b5djdkmtfqfb3" path="res://assets/controller/gdb-xbox-2.png" id="1_0hea2"]
+[ext_resource type="Script" path="res://gui_elements/controller/AnimatedTextureRect.gd" id="1_4k1t1"]
+[ext_resource type="SpriteFrames" uid="uid://dc65l7qnp5pmn" path="res://gui_elements/controller/lb_button_animation.tres" id="3_wypc3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3lhr"]
+atlas = ExtResource("1_0hea2")
+region = Rect2(183, 311, 18, 18)
+
+[node name="ButtonElement" type="TextureRect"]
+texture_filter = 1
+offset_right = 80.0
+offset_bottom = 80.0
+texture = SubResource("AtlasTexture_d3lhr")
+script = ExtResource("1_4k1t1")
+sprites = ExtResource("3_wypc3")
+current_animation = "stick_up_down"

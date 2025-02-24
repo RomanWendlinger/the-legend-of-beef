@@ -64,7 +64,7 @@ func animate_spawn_players(player_number: int) -> void :
 
 #simply create the character
 func spawn_player(player_number: int) -> Player:
-	var player_node: Player = load("res://players/player.tscn").instantiate()
+	var player_node: Player = load("res://players/granny/player.tscn").instantiate()
 	#every player has his own spawn area
 	player_node.global_position = get_spawn_position_for_player(player_number)
 	#set above background tile

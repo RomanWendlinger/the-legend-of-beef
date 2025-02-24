@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmb7unmimmacc"]
+
+[ext_resource type="Texture2D" uid="uid://cqjm0kbn6lfwp" path="res://assets/bottles/beer/beer_progress_background.png" id="1_pgxrh"]
+[ext_resource type="Texture2D" uid="uid://c833uuewdbt7o" path="res://assets/bottles/beer/beer_foreground_white.png" id="4_3g2vt"]
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+max_value = 120.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("1_pgxrh")
+texture_progress = ExtResource("4_3g2vt")
+tint_under = Color(0, 0.3, 0.03, 0.505882)
+tint_progress = Color(0.98, 0.697597, 0.0882, 0.662745)

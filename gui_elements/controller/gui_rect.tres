@@ -1,0 +1,14 @@
+[gd_resource type="AnimatedTexture" load_steps=2 format=3 uid="uid://bag8dsk6i5h7t"]
+
+[ext_resource type="Texture2D" uid="uid://db2gk7v04bx3q" path="res://assets/controller/controller_buttons.tres" id="1_5f8tw"]
+
+[resource]
+frames = 4
+frame_0/texture = ExtResource("1_5f8tw")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("1_5f8tw")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("1_5f8tw")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("1_5f8tw")
+frame_3/duration = 0.1
