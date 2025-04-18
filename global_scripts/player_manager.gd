@@ -15,7 +15,8 @@ signal players_spawned
 # - Voting state
 # 
 signal gui_update(player_number: int)
-signal player_died(player_number: int)
+signal managed_player_died(player_number: int)
+signal all_player_died
 
 var player_dict = {
 	"1": Player,
@@ -43,6 +44,7 @@ func get_player_refs() -> Array:
 		retArray.append(player_dict[str(player_number)])
 	return retArray
 	
+# Spawns all the players one after 
 func spawn_active_players() -> void:
 	#spawn em in
 	for player_number in active_players:
@@ -76,10 +78,18 @@ func spawn_player(player_number: int) -> Player:
 	# SIGNALS
 	#if player gets hit, let the gui also know
 	player_node.health_update.connect(func (): gui_update.emit(player_number))
-	player_node.player_died.connect(func (): player_died.emit(player_number))
+	player_node.player_died.connect(emit_player_died.bind(player_node))
+	
 	#add to tree 
 	get_tree().root.add_child(player_node)
 	return player_node
+	
+func emit_player_died(player_node): 
+	managed_player_died.emit(player_node.player_number)
+	if active_players.all(func(player_number: int): return player_dict[str(player_number)].is_dead) :
+		print("all dead gg")
+		all_player_died.emit()
+	
 	
 func get_spawn_position_for_player(player_number: int) -> Vector2:
 	match player_number:

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnsp6tys1007x"]
+
+[ext_resource type="Script" path="res://gui_elements/ingame_timer.gd" id="1_2dd8l"]
+
+[node name="IngameTimer" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 15.0
+grow_horizontal = 2
+
+[node name="Time" type="Label" parent="HBoxContainer" groups=["gui_ingame_timer"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "01:30"
+horizontal_alignment = 1
+script = ExtResource("1_2dd8l")

@@ -1,6 +1,8 @@
 extends Node
 
 var player_gui_node: CanvasLayer
+var timer_gui_node: CanvasLayer
+var ingame_timer: Timer
 var health_bar = {
 	"1": ProgressBar,
 	"2": ProgressBar,
@@ -12,6 +14,7 @@ var health_bar = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerManager.players_spawned.connect(create_player_panels)
+	PlayerManager.all_player_died.connect(create_game_over_panels)
 	pass # Replace with function body.
 	
 # add players gui and show for active players
@@ -40,7 +43,17 @@ func create_player_panels() -> void:
 func player_gui_update(player_number: int) -> void:
 	health_bar[str(player_number)].max_value = PlayerManager.player_dict[str(player_number)].max_health
 	health_bar[str(player_number)].value = PlayerManager.player_dict[str(player_number)].health
-	pass
+	
+func create_ingame_timer() -> void:
+	timer_gui_node = load("res://gui_elements/ingame_timer.tscn").instantiate()
+	get_tree().root.add_child(timer_gui_node)
+	
+func start_ingame_timer() -> void:
+	timer_gui_node.start
+	
+func create_game_over_panels() -> void:
+	print("done")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
