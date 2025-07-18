@@ -1,7 +1,10 @@
 extends Node
 
+signal map_scene_ended
+
 var player_gui_node: CanvasLayer
 var timer_gui_node: CanvasLayer
+var gameover_gui_node: CanvasLayer
 var ingame_timer: Timer
 var health_bar = {
 	"1": ProgressBar,
@@ -21,6 +24,7 @@ func _ready() -> void:
 # connect signals
 func create_player_panels() -> void:
 	player_gui_node = load("res://gui_elements/player_gui.tscn").instantiate();
+	
 	get_tree().root.add_child(player_gui_node)
 	var gui_player_health_nodes = get_tree().get_nodes_in_group("gui_player_health")
 	var gui_player_box_nodes = get_tree().get_nodes_in_group("gui_player_box")
@@ -52,7 +56,24 @@ func start_ingame_timer() -> void:
 	timer_gui_node.start
 	
 func create_game_over_panels() -> void:
-	print("done")
+	gameover_gui_node = load("res://gui_elements/gameover.tscn").instantiate()
+	get_tree().root.add_child(gameover_gui_node)
+	var end_screen_timer = Timer.new()
+	end_screen_timer.one_shot = true
+	end_screen_timer.wait_time = 5.0
+	end_screen_timer.autostart = true
+	end_screen_timer.timeout.connect(scene_switch_main_menu)
+	add_child(end_screen_timer)
+	
+func scene_switch_main_menu() -> void:
+	map_scene_ended.emit()
+	clear_current_gui()
+	SceneSwitcher.switch_scene("res://gui_elements/main_menu.tscn")
+	
+func clear_current_gui() -> void:
+	player_gui_node.queue_free()
+	gameover_gui_node.queue_free()
+	timer_gui_node.queue_free()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

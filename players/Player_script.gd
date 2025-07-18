@@ -4,6 +4,7 @@ class_name Player
 
 signal health_update
 signal player_died
+@warning_ignore("unused_signal")
 signal player_revived
 
 @export_group("Survival")
@@ -19,20 +20,28 @@ signal player_revived
 @export var pushback_dampening := 0.4
 @export var pushback_recover_speed := 3
 
+@export_group("Weapon")
+@export var current_weapon: WeaponData
+
 var player_number : int
 var shadowNode: Sprite2D
 var spriteNode: Sprite2D
+
+var attacking_timer: Timer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	shadowNode = get_node("Shadow")
 	spriteNode = get_node("Character")
-	pass # Replace with function body.
-	
-func _input(event: InputEvent) -> void:
-	pass
+	PlayerManager.players_spawned.connect(start_attacking_timer)
 
+func start_attacking_timer() -> void:
+	attacking_timer = Timer.new()
+	attacking_timer.wait_time = current_weapon.interval
+	attacking_timer.autostart = true
+	attacking_timer.timeout.connect(attack)
+	self.add_child(attacking_timer)
 	
 func _physics_process(delta: float) -> void:
 	var direction =Input.get_vector("P"+str(player_number)+" stick left","P"+str(player_number)+" stick right", "P"+str(player_number)+" stick up", "P"+str(player_number)+" stick down");
@@ -58,10 +67,14 @@ func _physics_process(delta: float) -> void:
 			collider.apply_impulse(global_position.direction_to(collider.global_position) * pushback_strength)
 		else:
 			pass
+	if Input.is_action_just_pressed("P"+str(player_number)+" button 1"):
+		pass
+		#attack()
 			
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if is_dead:
 		spriteNode.rotation = 90.0
@@ -93,6 +106,20 @@ func push_back(direction: Vector2) -> void:
 	velocity += direction
 	
 
+@warning_ignore("unused_parameter")
 func _on_collision(body: Node) -> void:
 	print("collision")
 	pass # Replace with function body.
+	 
+func attack() -> void:
+	var anim = current_weapon.SwingAnimation.instantiate()
+	if(current_weapon.projectile == true):
+		anim.global_position = self.global_position
+		get_tree().root.add_child(anim)
+	else:
+		self.add_child(anim)
+	anim.set_flip_h(spriteNode.flip_h)
+	anim.set_animation_speed_scale(current_weapon.animationScale)
+	anim.attack()
+	
+	

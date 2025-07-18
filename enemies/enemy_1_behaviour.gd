@@ -62,6 +62,11 @@ func _on_body_entered(body: Node) -> void:
 		body.push_back(global_position.direction_to(body.global_position).normalized() * (linear_velocity.length() / mass ))
 	
 		explode()
+	else:
+		print("body", body.get_groups())
+		if body.is_in_group("player_weapon_hurtbox"):
+			print("player weapon hit")
+			explode()
 	pass # Replace with function body.
 
 func explode() -> void:

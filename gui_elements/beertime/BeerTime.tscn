@@ -23,9 +23,9 @@ font_size = 32
 atlas = ExtResource("5_8y5y8")
 region = Rect2(320, 528, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2oh3k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgfwy"]
 atlas = ExtResource("6_1k8p0")
-region = Rect2(416, 80, 16, 16)
+region = Rect2(384, 80, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3u8ak"]
 atlas = ExtResource("5_8y5y8")
@@ -117,11 +117,11 @@ layout_mode = 2
 
 [node name="TextureRect" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_cr0nc")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_2oh3k")
+texture = SubResource("AtlasTexture_qgfwy")
 expand_mode = 3
 stretch_mode = 4
 current_animation = "lb"
-frame_index = 3
+frame_index = 1
 playing = true
 
 [node name="TextureRect3" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer" instance=ExtResource("4_cr0nc")]

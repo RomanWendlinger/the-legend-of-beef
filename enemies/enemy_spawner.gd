@@ -13,6 +13,7 @@ var let_the_dogs_out := false
 func _ready() -> void:
 	rng = RandomNumberGenerator.new()
 	PlayerManager.players_spawned.connect(func(): let_the_dogs_out = true)
+	GuiManager.map_scene_ended.connect(clear_scene)
 	pass # Replace with function body.
 
 
@@ -29,7 +30,6 @@ func _process(delta: float) -> void:
 			
 	
 func spawn_enemy_tscn() -> void:
-	print("Spawning enemy tscn")
 	#get the enemies dir and pick a random one
 	var enemyPackedScene = enemy_tscn_files.pick_random();
 	var enemyNode:RigidBody2D = enemyPackedScene.instantiate();
@@ -39,3 +39,7 @@ func spawn_enemy_tscn() -> void:
 	enemyNode.set_global_position(spawnPosition)
 	enemyNode.add_to_group("enemy_character")
 	get_tree().root.add_child(enemyNode)
+
+func clear_scene() -> void:
+	get_tree().call_group("enemy_character", "queue_free")
+	

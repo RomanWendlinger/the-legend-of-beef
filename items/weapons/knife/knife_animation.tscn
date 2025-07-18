@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://mx5nrrxabxpm"]
+
+[ext_resource type="Script" path="res://items/weapons/weapon_animation.gd" id="1_acrxc"]
+[ext_resource type="Texture2D" uid="uid://d5olwwccwupa" path="res://assets/sprites/items/fc157.png" id="1_ic8rk"]
+
+[sub_resource type="Animation" id="Animation_fdrre"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_neyx6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_asdvx"]
+_data = {
+"RESET": SubResource("Animation_neyx6"),
+"attack": SubResource("Animation_fdrre")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxrv5"]
+
+[node name="WeaponAnimation" type="Node2D"]
+script = ExtResource("1_acrxc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_asdvx")
+}
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, -2.38419e-07)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_ic8rk")
+offset = Vector2(28.1777, -26.7268)
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="Area2D" type="Area2D" parent="sprite" groups=["player_weapon_hurtbox"]]
+position = Vector2(40, -38.5714)
+rotation = -0.786863
+scale = Vector2(2.59221, 1.2335)
+collision_layer = 8
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite/Area2D" groups=["player_weapon_hurtbox"]]
+position = Vector2(1.90735e-06, 1.90735e-06)
+shape = SubResource("RectangleShape2D_dxrv5")
+
+[connection signal="body_entered" from="sprite/Area2D" to="." method="_on_area_2d_body_entered"]

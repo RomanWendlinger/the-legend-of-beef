@@ -32,6 +32,7 @@ var active_players : Array[int]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	active_players = []
+	GuiManager.map_scene_ended.connect(clear_current_scene)
 	
 func set_player_active(playernumber: int, active: bool):
 	#add player number to array for easier iterations
@@ -87,7 +88,6 @@ func spawn_player(player_number: int) -> Player:
 func emit_player_died(player_node): 
 	managed_player_died.emit(player_node.player_number)
 	if active_players.all(func(player_number: int): return player_dict[str(player_number)].is_dead) :
-		print("all dead gg")
 		all_player_died.emit()
 	
 	
@@ -103,3 +103,8 @@ func get_spawn_position_for_player(player_number: int) -> Vector2:
 			return Vector2(550, 400)
 		_:
 			return Vector2(500, 350)
+
+func clear_current_scene() -> void:
+	for playerint in active_players:
+		player_dict[str(playerint)].queue_free()
+	pass
