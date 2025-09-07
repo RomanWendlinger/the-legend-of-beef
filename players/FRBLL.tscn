@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc2jx43bb5wew"]
+
+[ext_resource type="PackedScene" uid="uid://bc7td43f5lh0a" path="res://players/player.tscn" id="1_cku1v"]
+[ext_resource type="Resource" uid="uid://b2vq7fqb43cbw" path="res://items/weapons/goop/goop.tres" id="2_7lmx8"]
+
+[node name="Character" instance=ExtResource("1_cku1v")]
+current_weapon = ExtResource("2_7lmx8")
+
+[node name="Character" parent="." index="2"]
+region_rect = Rect2(0, 128, 32, 32)

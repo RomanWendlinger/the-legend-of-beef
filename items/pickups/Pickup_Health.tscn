@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://da74ujw1nka4y"]
+
+[ext_resource type="Script" uid="uid://s6hml3j0wero" path="res://items/pickups/PickupData.gd" id="1_v5kbd"]
+[ext_resource type="Texture2D" uid="uid://cbs3364pldx2u" path="res://assets/sprites/items/pickups/fc659.png" id="2_f14bx"]
+[ext_resource type="Script" uid="uid://cbuihhnntpy2e" path="res://items/pickups/animation_player.gd" id="3_sfvj1"]
+[ext_resource type="PackedScene" uid="uid://c143o3wrixhye" path="res://items/pickups/pickup_particle_effect.tscn" id="4_4le7j"]
+[ext_resource type="PackedScene" uid="uid://dafvtohpdqsi5" path="res://components/pickupable_component.tscn" id="5_f14bx"]
+
+[sub_resource type="Animation" id="Animation_td70v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_miodm"]
+resource_name = "hovering"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tw0wa"]
+_data = {
+&"RESET": SubResource("Animation_td70v"),
+&"hovering": SubResource("Animation_miodm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f14bx"]
+
+[node name="Health" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_v5kbd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f14bx")
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 46)
+scale = Vector2(1, 0.1)
+texture = ExtResource("2_f14bx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tw0wa")
+}
+script = ExtResource("3_sfvj1")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("4_4le7j")]
+position = Vector2(-3.33333, 10)
+
+[node name="Price" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -70.0
+offset_right = 34.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="PickupableComponent" parent="." node_paths=PackedStringArray("on_collection_remove_target") instance=ExtResource("5_f14bx")]
+property = 1
+property_value = 200.0
+on_collection_remove_target = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupableComponent"]
+scale = Vector2(7.23562, 7.35409)
+shape = SubResource("RectangleShape2D_f14bx")

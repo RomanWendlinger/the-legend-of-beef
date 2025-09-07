@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cou2ykaq10wfo"]
+[gd_scene load_steps=17 format=3 uid="uid://cou2ykaq10wfo"]
 
 [ext_resource type="Theme" uid="uid://bdphv6f7bl5o1" path="res://theme/theme.tres" id="1_28s4d"]
+[ext_resource type="Script" uid="uid://0ux45vcdgw1o" path="res://gui_elements/beertime/beer_time.gd" id="1_dgh26"]
 [ext_resource type="PackedScene" uid="uid://ehayji4focn3" path="res://players/granny/granny_avatar.tscn" id="2_prdhh"]
 [ext_resource type="PackedScene" uid="uid://cmb7unmimmacc" path="res://gui_elements/beertime/beer_bottle.tscn" id="3_ahvps"]
 [ext_resource type="PackedScene" uid="uid://du3twm8cws7mo" path="res://gui_elements/controller/gui_button_element.tscn" id="4_cr0nc"]
@@ -31,7 +32,115 @@ region = Rect2(384, 80, 16, 16)
 atlas = ExtResource("5_8y5y8")
 region = Rect2(320, 544, 16, 16)
 
+[sub_resource type="Animation" id="Animation_4afje"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(451.5, 77)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/MarginContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_6atiy"]
+resource_name = "start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(451.5, -500), Vector2(451.5, 77)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/MarginContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.43333, 1.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2.5, 2.86667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5pnhi"]
+_data = {
+&"RESET": SubResource("Animation_4afje"),
+&"start": SubResource("Animation_6atiy")
+}
+
 [node name="BeerTime" type="CanvasLayer"]
+script = ExtResource("1_dgh26")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -39,10 +148,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -148.5
+offset_top = -323.0
+offset_right = 148.5
+offset_bottom = 323.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -67,12 +176,14 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
+visible = false
 layout_mode = 2
 text = "Player 1"
 label_settings = SubResource("LabelSettings_umtxb")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_bottom = 40
 
@@ -82,6 +193,7 @@ expand_mode = 5
 stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer"]
@@ -130,3 +242,8 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_3u8ak")
 current_animation = "arrow_down"
 playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5pnhi")
+}

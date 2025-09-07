@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://c16dpjimdgr6p"]
+
+[ext_resource type="PackedScene" uid="uid://dlvlt4fq04ftg" path="res://items/weapons/Lightning/lightning_animation.tscn" id="1_1w323"]
+[ext_resource type="Script" uid="uid://cn1lu4u7sbskq" path="res://items/weapons/WeaponData.gd" id="1_ml1v7"]
+
+[resource]
+script = ExtResource("1_ml1v7")
+damage = 300.0
+interval = 5.0
+aimAnimationScale = 1.0
+attackAnimationScale = 1.0
+SwingAnimation = ExtResource("1_1w323")
+projectile = false
+absolute_aiming = true
+remove_animation_on_hit = false
+remove_hurtbox_on_hit = true
+onHitDamage = 30.0
+onHitAnimationScale = 1.0
+name = ""
+description = ""

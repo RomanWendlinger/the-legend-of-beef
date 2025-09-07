@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyybfc4yda23d"]
+
+[ext_resource type="Texture2D" uid="uid://yl88isju2shl" path="res://assets/coins/coins-chests-etc-2-0.png" id="1_1lg1i"]
+[ext_resource type="Script" uid="uid://bt0i21hpebnjl" path="res://items/pickups/coin/coin.gd" id="1_6dw85"]
+[ext_resource type="Script" uid="uid://q7cqidry3j47" path="res://components/pickupable_component.gd" id="3_psjkj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dw85"]
+atlas = ExtResource("1_1lg1i")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr5ih"]
+atlas = ExtResource("1_1lg1i")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omk8p"]
+atlas = ExtResource("1_1lg1i")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnov0"]
+atlas = ExtResource("1_1lg1i")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w13cl"]
+atlas = ExtResource("1_1lg1i")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg8a5"]
+atlas = ExtResource("1_1lg1i")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqq6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dw85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr5ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omk8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnov0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w13cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg8a5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lg1i"]
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_6dw85")
+
+[node name="CoinSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_yqq6o")
+autoplay = "default"
+frame_progress = 0.881684
+
+[node name="shadow" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(0, 7)
+scale = Vector2(1, 0.1)
+sprite_frames = SubResource("SpriteFrames_yqq6o")
+autoplay = "default"
+frame_progress = 0.915377
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.535108, 0.772775)
+script = ExtResource("3_psjkj")
+metadata/_custom_type_script = "uid://q7cqidry3j47"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1lg1i")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

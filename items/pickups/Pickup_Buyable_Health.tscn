@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://br8fwxvercpin"]
+
+[ext_resource type="Script" uid="uid://s6hml3j0wero" path="res://items/pickups/PickupData.gd" id="1_dh77y"]
+[ext_resource type="Texture2D" uid="uid://cbs3364pldx2u" path="res://assets/sprites/items/pickups/fc659.png" id="2_i2hjf"]
+[ext_resource type="Script" uid="uid://cbuihhnntpy2e" path="res://items/pickups/animation_player.gd" id="3_notn4"]
+[ext_resource type="PackedScene" uid="uid://c143o3wrixhye" path="res://items/pickups/pickup_particle_effect.tscn" id="4_50ydg"]
+[ext_resource type="PackedScene" uid="uid://dafvtohpdqsi5" path="res://components/pickupable_component.tscn" id="5_73v2i"]
+[ext_resource type="PackedScene" uid="uid://b24hxcm7r3k2o" path="res://components/buyable_component.tscn" id="5_dh77y"]
+
+[sub_resource type="Animation" id="Animation_td70v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_miodm"]
+resource_name = "hovering"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tw0wa"]
+_data = {
+&"RESET": SubResource("Animation_td70v"),
+&"hovering": SubResource("Animation_miodm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dh77y"]
+size = Vector2(15.2241, 25.8394)
+
+[node name="Health" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_dh77y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i2hjf")
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 46)
+scale = Vector2(1, 0.1)
+texture = ExtResource("2_i2hjf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tw0wa")
+}
+script = ExtResource("3_notn4")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("4_50ydg")]
+position = Vector2(-3.33333, 10)
+
+[node name="Price" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -166.667
+offset_top = -100.0
+offset_right = 28.3333
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
+theme_override_font_sizes/font_size = 32
+text = "5 coins"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="PickupableComponent" parent="." node_paths=PackedStringArray("on_collection_remove_target") instance=ExtResource("5_73v2i")]
+property = 1
+property_value = 30.0
+on_collection_remove_target = NodePath("..")
+
+[node name="BuyableComponent" parent="." node_paths=PackedStringArray("price_label", "pickup_component") instance=ExtResource("5_dh77y")]
+scale = Vector2(19.1421, 11.7849)
+price = 5
+price_label = NodePath("../Price")
+pickup_component = NodePath("../PickupableComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuyableComponent"]
+position = Vector2(0, 4.2427)
+scale = Vector2(0.614375, 0.617694)
+shape = SubResource("RectangleShape2D_dh77y")

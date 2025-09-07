@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c143o3wrixhye"]
+
+[ext_resource type="Material" uid="uid://up5tleg6urt7" path="res://items/pickup_particles.tres" id="1_mix68"]
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+self_modulate = Color(1, 1, 0, 1)
+amount = 16
+lifetime = 1.5
+fixed_fps = 60
+collision_base_size = 0.0
+process_material = ExtResource("1_mix68")

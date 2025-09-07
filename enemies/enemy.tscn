@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://c015ibik0tj76"]
+
+[ext_resource type="Script" uid="uid://dl75rwam5ppnn" path="res://enemies/Enemy.gd" id="1_ckmd2"]
+[ext_resource type="Texture2D" uid="uid://cvebgd4022yaw" path="res://assets/sprites/monsters.png" id="2_ej578"]
+[ext_resource type="Script" uid="uid://dsnfs02mxmyf1" path="res://gui_elements/health_bar.gd" id="3_vvgcy"]
+[ext_resource type="PackedScene" uid="uid://b4cmdgy6k3ckn" path="res://components/health_component.tscn" id="4_a6vjd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_705dk"]
+blend_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iybtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72b4m"]
+size = Vector2(30, 21)
+
+[node name="Enemy1" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 27
+mass = 3.0
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 50
+linear_damp = 1.0
+script = ExtResource("1_ckmd2")
+speed = 10.0
+
+[node name="shadow" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 1
+material = SubResource("CanvasItemMaterial_705dk")
+position = Vector2(0, 11)
+scale = Vector2(1.1, 0.3)
+texture = ExtResource("2_ej578")
+region_enabled = true
+region_rect = Rect2(160, 128, 32, 32)
+
+[node name="monster" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("CanvasItemMaterial_iybtg")
+texture = ExtResource("2_ej578")
+region_enabled = true
+region_rect = Rect2(160, 128, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_72b4m")
+
+[node name="ui" type="Control" parent="."]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -14.0
+offset_right = 17.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.962658, 1.04493)
+
+[node name="HealthBar" type="ProgressBar" parent="ui"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HealthBar"
+value = 90.0
+show_percentage = false
+script = ExtResource("3_vvgcy")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_a6vjd")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

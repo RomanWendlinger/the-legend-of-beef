@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://u6kqkox1ioef"]
+
+[ext_resource type="Texture2D" uid="uid://qpgn42jm2wv" path="res://assets/sprites/hole_in_ground.png" id="1_61gyx"]
+[ext_resource type="Script" uid="uid://cxco5yicn86bd" path="res://items/level_end_hole.gd" id="1_ppuo0"]
+[ext_resource type="PackedScene" uid="uid://c143o3wrixhye" path="res://items/pickups/pickup_particle_effect.tscn" id="3_3qjb4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r42x2"]
+
+[node name="LevelEndHole" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_ppuo0")
+
+[node name="HoleInGround" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("1_61gyx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2.92, 1.32)
+shape = SubResource("CircleShape2D_r42x2")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_3qjb4")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

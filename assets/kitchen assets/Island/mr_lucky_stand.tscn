@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvxx8131mygyp"]
+
+[ext_resource type="Texture2D" uid="uid://defneb5x6v58u" path="res://assets/MR-LUCKY_face.png" id="1_egdyq"]
+[ext_resource type="Texture2D" uid="uid://02y335shp3gt" path="res://assets/oriental_carpet_2.png" id="1_nqx6p"]
+[ext_resource type="Texture2D" uid="uid://bw5on7ma6unhn" path="res://assets/kitchen assets/Table/Table.png" id="2_fgp3u"]
+[ext_resource type="Texture2D" uid="uid://bbgob1yyet6mt" path="res://assets/picture_frame.png" id="3_fgp3u"]
+
+[node name="MrLuckyStand" type="Node2D"]
+texture_filter = 1
+
+[node name="carpet" type="Sprite2D" parent="."]
+position = Vector2(47, 32)
+texture = ExtResource("1_nqx6p")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(24, -12)
+scale = Vector2(0.502878, 0.539)
+
+[node name="table" type="Sprite2D" parent="Node2D"]
+position = Vector2(45.7368, 7.42116)
+scale = Vector2(1.98855, 1.85529)
+texture = ExtResource("2_fgp3u")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Node2D"]
+position = Vector2(45, -10)
+scale = Vector2(0.104, 0.1)
+texture = ExtResource("1_egdyq")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Node2D"]
+position = Vector2(45, -10)
+scale = Vector2(0.652708, 0.680568)
+texture = ExtResource("3_fgp3u")

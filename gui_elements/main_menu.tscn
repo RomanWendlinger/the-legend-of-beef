@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://be0norc6obxew"]
 
 [ext_resource type="PackedScene" uid="uid://cs16bg3i2gt8h" path="res://assets/cloud_background.tscn" id="1_pi5gf"]
-[ext_resource type="Script" path="res://assets/cloud_background.gd" id="2_1lffc"]
-[ext_resource type="Script" path="res://gui_elements/start_button.gd" id="2_bs8sx"]
+[ext_resource type="Script" uid="uid://owpe3bf0j6vc" path="res://assets/cloud_background.gd" id="2_1lffc"]
+[ext_resource type="Script" uid="uid://d1mgjlr1w1tp8" path="res://gui_elements/start_button.gd" id="2_bs8sx"]
 [ext_resource type="Theme" uid="uid://bdphv6f7bl5o1" path="res://theme/theme.tres" id="5_is0wl"]
 
-[node name="MainMenu" type="Control"]
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

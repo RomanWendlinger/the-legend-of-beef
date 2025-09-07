@@ -1,0 +1,81 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://cxhmbgu1nii02"]
+
+[ext_resource type="Texture2D" uid="uid://bw6bjyi5tdk5n" path="res://assets/sprites/effects/lightning_aim.png" id="1_bdj2h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7wkm"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk4f6"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txdgi"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcio0"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3grk"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuqc2"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(320, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnidd"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvocl"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(448, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmlrq"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(512, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs4ek"]
+atlas = ExtResource("1_bdj2h")
+region = Rect2(576, 320, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7wkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk4f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txdgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcio0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3grk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuqc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnidd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvocl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmlrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs4ek")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]

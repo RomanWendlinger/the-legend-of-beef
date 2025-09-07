@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ocdg45rw4n0p"]
+
+[ext_resource type="Texture2D" uid="uid://beyio7bjrne64" path="res://assets/RF_Catacombs_v1.0/candleA_01.png" id="1_vr45u"]
+[ext_resource type="Texture2D" uid="uid://v7cef32u18om" path="res://assets/player_light.tres" id="2_4jtit"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6pgja"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 474.5
+direction = Vector3(0, -1, 0)
+spread = 25.0
+initial_velocity_max = 3.0
+
+[sub_resource type="Gradient" id="Gradient_njn7l"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.882353, 0.447059, 0.129412, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bhgcu"]
+gradient = SubResource("Gradient_njn7l")
+width = 1
+
+[node name="CandleA" type="Sprite2D"]
+self_modulate = Color(0.332881, 0.332881, 0.332881, 1)
+texture_filter = 1
+texture = ExtResource("1_vr45u")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -4)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_6pgja")
+texture = SubResource("GradientTexture1D_bhgcu")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -4)
+color = Color(0.387575, 0.260938, 0.0141791, 1)
+energy = 2.5
+shadow_enabled = true
+texture = ExtResource("2_4jtit")
+texture_scale = 8.0

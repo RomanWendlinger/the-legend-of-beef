@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2crpiul8jrni"]
 
-[ext_resource type="Script" path="res://gui_elements/player_select_screen.gd" id="1_wnmye"]
+[ext_resource type="Script" uid="uid://c7wlrhnukbq1j" path="res://gui_elements/player_select_screen.gd" id="1_wnmye"]
 [ext_resource type="StyleBox" uid="uid://db1765yg65ypq" path="res://theme/button_default.tres" id="2_mpwbx"]
 [ext_resource type="PackedScene" uid="uid://cs16bg3i2gt8h" path="res://assets/cloud_background.tscn" id="3_033st"]
 
-[node name="PlayerSelect" type="Control"]
+[node name="Main" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

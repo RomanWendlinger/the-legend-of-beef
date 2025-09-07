@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b24hxcm7r3k2o"]
+
+[ext_resource type="Script" uid="uid://ci168jrna3ox4" path="res://components/buyable_component.gd" id="1_gfyca"]
+
+[node name="BuyableComponent" type="Area2D"]
+scale = Vector2(7.85899, 8.59867)
+collision_layer = 4
+script = ExtResource("1_gfyca")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

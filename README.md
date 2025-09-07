@@ -1,5 +1,15 @@
 # The Legend of Beef
 
+Todo currently:
+	coin counter fix on buy -> fixed
+	wall only cache cluster - FIXED
+	room scaling -> WIP
+	Shop scaling
+	shop coin scaling lower start
+	shop price red if to expensive
+	enemy hole knockback to not enter instantly
+	
+	
 ## Todo List
 - Gameplay Loop
 	- Survive
@@ -42,23 +52,23 @@
   - Characters
 	- Global autoload character/player singleton
 	- Spawn players on level load with correct controls
-	- animate
-	- turn sprite on turn
+	+ animate
+	+ turn sprite on turn
 	- stuff to keep track of:
-		- Health
-		- is_dead
-		- is_frozen
-		- player slot 1-4
+		+ Health
+		+ is_dead
+		+ is_frozen
+		+ player slot 1-4
 		- Beer Fatigue percentage
 		- Beer count
 		- Powerup state (active, time remaining)
 		- Powerup count each
 		- Beerlevel (in ml)
 		- revive count
-		- Weapons
+		+ Weapons
 		- Raise Beer/Hand (activate timer (1s))
-  - Camera movement
-	- Keep players in view
+  + Camera movement
+	+ Keep players in view
   - Allies
 	- Turrets?
 	- Walls
@@ -68,13 +78,13 @@
   - Monsters
 	- Different movesets
 	- Shooting?
-	- Spawn areas
+	+ Spawn areas
 		- Thrown in the cage?
 			-> start animation without movement
 			-> random place
 			-> indicator where it lands?
 				-> red circle with shadow that gets bigger?
-		- Spawn hub?
+		+ Spawn hub?
 	types:
 		Small monster
 			Runs straight at visible player
@@ -175,10 +185,10 @@
   - Items
 	- Health pickups (slow HoT only)
   - Weapons
-	only one weapon?
+	+ only one weapon?
 	upgrades?
 	Types:
-	Sword
+	+ Sword
 		Swing in arc 105°? 
 		middle range
 		aim at closest enemy
@@ -238,10 +248,10 @@
 		damages all players and enemies *duh*
 	
   - GUI
-	- Button Icons all over the place
+	+ Button Icons all over the place
 	- Player stats
-	  - Health
-	  - Name
+	  + Health
+	  + Name
 	  - Beer Fatique
 	  - Weapon
 	  - Icon
@@ -249,11 +259,11 @@
 	  - Beercount!
 	  - Beerlevel!
 - Levels
-  - spawn in animation
-  - start timer
+  + spawn in animation
+  + start timer
   - scale?
-  - better background color theme
-  - Boundaries + 
+  + better background color theme
+  + Boundaries + 
   - Stage hazards?
   - stage velocities
 - Sound
@@ -307,3 +317,30 @@ graph TD;
 
 	
 ```
+Scaling ideas:
+	Ground level n 
+		-> enemy health 	= 100% + n * 10% ?
+		-> enemy damage 	= 100% + n * 10% ?
+		-> enemy speed 		= 100% + n * 10% ?
+			-> level 10 200% stats
+			-> level 20 300% stats
+		enemy tiers?
+			-> Tier Levels increase chance of higher tiers?
+			-> tier levels increase every x ground levels
+				-> tier 1 
+					groundlevel 1-4 
+					level 1 100%
+					level 2 110%
+					level 3 120%
+					level 4 130%
+				-> tier 2 
+					groundlevel 5-8
+	shop prices
+		3 items at base
+		reroll -> 10 coins * rerolls
+			10, 20, 30, 40, 50
+			
+		
+	Time scaling? 
+		
+	

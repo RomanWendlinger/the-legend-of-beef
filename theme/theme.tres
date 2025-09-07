@@ -1,8 +1,23 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bdphv6f7bl5o1"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bdphv6f7bl5o1"]
 
 [ext_resource type="StyleBox" uid="uid://dd8fdtlqwo6cp" path="res://theme/button_focus.tres" id="1_omc1r"]
 [ext_resource type="StyleBox" uid="uid://cryx7y0xq1tk7" path="res://theme/button_hover.tres" id="2_gw4il"]
 [ext_resource type="StyleBox" uid="uid://db1765yg65ypq" path="res://theme/button_default.tres" id="3_ytln0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb3vf"]
+bg_color = Color(0.964706, 0.231373, 0.231373, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lqtm"]
+bg_color = Color(0, 0.956863, 0.447059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -14,6 +29,9 @@ Button/font_sizes/font_size = 16
 Button/styles/focus = ExtResource("1_omc1r")
 Button/styles/hover = ExtResource("2_gw4il")
 Button/styles/normal = ExtResource("3_ytln0")
+HealthBar/base_type = &"ProgressBar"
+HealthBar/styles/background = SubResource("StyleBoxFlat_wb3vf")
+HealthBar/styles/fill = SubResource("StyleBoxFlat_8lqtm")
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10

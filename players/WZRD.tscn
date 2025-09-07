@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://qw1y57l1o0xi"]
+
+[ext_resource type="PackedScene" uid="uid://bc7td43f5lh0a" path="res://players/player.tscn" id="1_q4gfu"]
+
+[node name="Character" instance=ExtResource("1_q4gfu")]
+health = 1400.0
+
+[node name="Character" parent="." index="2"]
+region_rect = Rect2(32, 128, 32, 32)

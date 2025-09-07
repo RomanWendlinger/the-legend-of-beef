@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccmk36in6lrxr"]
+
+[ext_resource type="PackedScene" uid="uid://bc7td43f5lh0a" path="res://players/player.tscn" id="1_lcfqw"]
+
+[node name="Character" instance=ExtResource("1_lcfqw")]
+speed = 200.0
+
+[node name="Character" parent="." index="2"]
+region_rect = Rect2(0, 192, 32, 32)

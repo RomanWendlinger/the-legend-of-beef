@@ -1,0 +1,21 @@
+[gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://bci5p8c7mm2q7"]
+
+[ext_resource type="Texture2D" uid="uid://dj3boxv7oibwu" path="res://assets/sprites/effects/Free Smoke Fx  Pixel 05.png" id="1_3ggno"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5b1b"]
+atlas = ExtResource("1_3ggno")
+region = Rect2(0, 0, 704, 64)
+
+[resource]
+frames = 10
+one_shot = true
+frame_0/texture = SubResource("AtlasTexture_c5b1b")
+frame_1/duration = 1.0
+frame_2/duration = 1.0
+frame_3/duration = 1.0
+frame_4/duration = 1.0
+frame_5/duration = 1.0
+frame_6/duration = 1.0
+frame_7/duration = 1.0
+frame_8/duration = 1.0
+frame_9/duration = 1.0

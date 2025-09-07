@@ -38,7 +38,7 @@ func play(animation_name : String = current_animation):
 	get_animation_data(current_animation)
 	playing = true
 	
-func get_animation_data(animation):
+func get_animation_data(_animation):
 	fps =  sprites.get_animation_speed(current_animation)
 	refresh_rate = sprites.get_frame_duration(current_animation, frame_index)
 	

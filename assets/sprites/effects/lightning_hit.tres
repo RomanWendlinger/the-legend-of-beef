@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bua5p5xqgbr3y"]
+
+[ext_resource type="Texture2D" uid="uid://bguh0snqtqemn" path="res://assets/sprites/effects/lightning_hit.png" id="1_8v0th"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7xwr"]
+atlas = ExtResource("1_8v0th")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f88ov"]
+atlas = ExtResource("1_8v0th")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84dbu"]
+atlas = ExtResource("1_8v0th")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acjro"]
+atlas = ExtResource("1_8v0th")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7icmt"]
+atlas = ExtResource("1_8v0th")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppyqd"]
+atlas = ExtResource("1_8v0th")
+region = Rect2(320, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjkbx"]
+atlas = ExtResource("1_8v0th")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3k16"]
+atlas = ExtResource("1_8v0th")
+region = Rect2(448, 320, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7xwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f88ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84dbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acjro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7icmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppyqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjkbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3k16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]

@@ -1,4 +1,5 @@
 extends Camera2D
+class_name AutoZoomCamera2D
 
 @export var move_speed := 30
 @export var zoom_speed := 3.0
@@ -20,11 +21,11 @@ func remove_player(p):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerManager.players_spawned.connect(set_players)
+	SignalBus.players_spawned.connect(set_players)
+	
 	
 func set_players() -> void:
 	players = PlayerManager.get_player_refs()
-	print(players.size())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

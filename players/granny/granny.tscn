@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cueclr5q57igy"]
+
+[ext_resource type="PackedScene" uid="uid://bc7td43f5lh0a" path="res://players/player.tscn" id="1_rdgll"]
+[ext_resource type="Resource" uid="uid://c0mgqjjlt1as0" path="res://items/weapons/knife/knife.tres" id="2_seagr"]
+
+[node name="Character" instance=ExtResource("1_rdgll")]
+current_weapon = ExtResource("2_seagr")

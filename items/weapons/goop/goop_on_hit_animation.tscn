@@ -1,0 +1,217 @@
+[gd_scene load_steps=21 format=3 uid="uid://cd4t8fato7gna"]
+
+[ext_resource type="Script" uid="uid://iqta3203jj6x" path="res://items/weapons/weapon_animation.gd" id="1_k8cwn"]
+[ext_resource type="Texture2D" uid="uid://dj3boxv7oibwu" path="res://assets/sprites/effects/Free Smoke Fx  Pixel 05.png" id="3_nv8ei"]
+[ext_resource type="Texture2D" uid="uid://v7cef32u18om" path="res://assets/player_light.tres" id="3_rruvi"]
+
+[sub_resource type="Animation" id="Animation_neyx6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite/Area2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite/PointLight2D:texture_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7.0]
+}
+
+[sub_resource type="Animation" id="Animation_fdrre"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite/Area2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.8),
+"transitions": PackedFloat32Array(1, 7.99998, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(3, 3), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite/PointLight2D:texture_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 2.54912, 3.36359),
+"update": 0,
+"values": [3.0, 5.0, 0.01]
+}
+
+[sub_resource type="Animation" id="Animation_ncjmv"]
+resource_name = "start_aim"
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_asdvx"]
+_data = {
+&"RESET": SubResource("Animation_neyx6"),
+&"attack": SubResource("Animation_fdrre"),
+&"start_aim": SubResource("Animation_ncjmv")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc2jq"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jboua"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br5a5"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fbwq"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag1bh"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jnq6"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oghsa"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ermr0"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd5w7"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk7xr"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0sbb"]
+atlas = ExtResource("3_nv8ei")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlniq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc2jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jboua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br5a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fbwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag1bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jnq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oghsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ermr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd5w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk7xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0sbb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ho26"]
+
+[node name="WeaponAnimation" type="Node2D"]
+position = Vector2(-2, 0)
+scale = Vector2(2, 2)
+script = ExtResource("1_k8cwn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_asdvx")
+}
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.941176, 0.180392, 1)
+texture_filter = 1
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_jlniq")
+frame = 10
+
+[node name="Area2D" type="Area2D" parent="sprite" groups=["player_weapon_hurtbox"]]
+scale = Vector2(3, 3)
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite/Area2D" groups=["player_weapon_hurtbox"]]
+shape = SubResource("CircleShape2D_4ho26")
+
+[node name="PointLight2D" type="PointLight2D" parent="sprite"]
+position = Vector2(-0.5, -0.5)
+color = Color(1, 1, 0, 1)
+energy = 3.0
+shadow_enabled = true
+texture = ExtResource("3_rruvi")
+texture_scale = 7.0
+height = 3.0
+
+[connection signal="body_entered" from="sprite/Area2D" to="." method="_on_on_hit_area_2d_body_entered"]

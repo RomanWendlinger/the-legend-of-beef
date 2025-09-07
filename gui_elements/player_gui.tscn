@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt2ynexp2bmop"]
+[gd_scene load_steps=6 format=3 uid="uid://dt2ynexp2bmop"]
 
 [ext_resource type="Theme" uid="uid://bdphv6f7bl5o1" path="res://theme/theme.tres" id="1_4wavi"]
+[ext_resource type="Script" uid="uid://cclfqyxcvc1f" path="res://gui_elements/coin_counter.gd" id="2_vyvpi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ylwy1"]
 font_size = 32
@@ -25,6 +26,7 @@ border_color = Color(0.0218638, 0.179572, 0.309365, 1)
 [node name="PlayerGUI" type="CanvasLayer"]
 
 [node name="Global" type="HBoxContainer" parent="."]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,7 +50,6 @@ size_flags_horizontal = 3
 theme = ExtResource("1_4wavi")
 
 [node name="Player1Box" type="VBoxContainer" parent="Global/ColLeft/RowTop/MarginContainer" groups=["gui_player_box"]]
-visible = false
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
@@ -74,6 +75,21 @@ theme_override_styles/background = SubResource("StyleBoxFlat_2l5uk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_flegn")
 value = 100.0
 show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Global/ColLeft/RowTop/MarginContainer/Player1Box"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Global/ColLeft/RowTop/MarginContainer/Player1Box/HBoxContainer2"]
+layout_mode = 2
+text = "Coins: "
+
+[node name="Coins1" type="Label" parent="Global/ColLeft/RowTop/MarginContainer/Player1Box/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+script = ExtResource("2_vyvpi")
 
 [node name="Container" type="Container" parent="Global/ColLeft/RowTop"]
 layout_mode = 2

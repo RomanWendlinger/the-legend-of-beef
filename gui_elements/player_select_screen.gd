@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 	timerArray.resize(5)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	#handle player 1 input
 	manage_button_actions(1)
 	
@@ -71,7 +71,7 @@ func manage_button_actions(player_number: int) -> void:
 			else:
 				#start timer for level start
 				timerArray[player_number] = Timer.new()
-				get_tree().root.add_child(timerArray[player_number])
+				get_tree().root.get_children()[0].add_child(timerArray[player_number])
 				timerArray[player_number].process_callback = Timer.TIMER_PROCESS_IDLE
 				timerArray[player_number].start(hold_timer)
 				timerArray[player_number].one_shot = true
@@ -89,12 +89,18 @@ func manage_button_actions(player_number: int) -> void:
 	pass
 
 func start_next_level() -> void:
+	stop_bars()
 	SceneSwitcher.switch_scene("res://level/map1.tscn")
 
-func _process(delta: float) -> void:
+func stop_bars() -> void:
+	for timer in timerArray:
+		if is_instance_valid(timer):
+			timer.stop()
+	pass
+
+func _process(_delta: float) -> void:
 	for timer in timerArray:
 		if timer is Timer and not timer.is_stopped():
 			var progress = (hold_timer - timer.time_left) / hold_timer * 100
 			get("p"+str(timerArray.find(timer))+"ProgressBar").value = progress
-		pass
 		

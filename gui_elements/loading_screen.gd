@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 		
 func start_loading_scene(path: String):
 	next_scene_path = path
-	print("loading scene " + path)
 	#if GameManager.savegame_screenshot:
 	#    var texture = ImageTexture.create_from_image(GameManager.savegame_screenshot)
 	#    if next_scene_path == "res://scenes/main_scene.tscn":
@@ -48,5 +47,4 @@ func start_loading_scene(path: String):
 
 
 func _on_scene_loaded() -> void:
-	print("yes")
 	pass # Replace with function body.

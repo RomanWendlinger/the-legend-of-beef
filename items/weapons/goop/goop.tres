@@ -1,14 +1,24 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://b2vq7fqb43cbw"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://b2vq7fqb43cbw"]
 
 [ext_resource type="PackedScene" uid="uid://bxyniunebuqk0" path="res://items/weapons/goop/goop_animation.tscn" id="1_1n6s1"]
-[ext_resource type="Script" path="res://items/weapons/WeaponData.gd" id="1_myjl2"]
+[ext_resource type="Script" uid="uid://cn1lu4u7sbskq" path="res://items/weapons/WeaponData.gd" id="1_myjl2"]
+[ext_resource type="PackedScene" uid="uid://cd4t8fato7gna" path="res://items/weapons/goop/goop_on_hit_animation.tscn" id="1_px2dh"]
+[ext_resource type="Texture2D" uid="uid://c5e18o4icxfu1" path="res://assets/sprites/items/fc1034.png" id="3_hl4av"]
 
 [resource]
 script = ExtResource("1_myjl2")
-damage = 10.0
+damage = 0.0
 interval = 0.2
-animationScale = 1.0
+aimAnimationScale = 0.2
+attackAnimationScale = 1.5
 SwingAnimation = ExtResource("1_1n6s1")
 projectile = true
-name = ""
-description = ""
+absolute_aiming = false
+remove_animation_on_hit = true
+remove_hurtbox_on_hit = true
+OnHitAnimation = ExtResource("1_px2dh")
+onHitDamage = 80.0
+onHitAnimationScale = 2.0
+name = "Goop"
+description = "we throwing gooop"
+texture = ExtResource("3_hl4av")
