@@ -1,3 +1,4 @@
+@tool
 extends Node
 class_name RoomGenerator
 
@@ -21,8 +22,9 @@ var groundTileMap = XYMap.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalBus.start_map_close.connect(reset)
-	pass # Replace with function body.
+	
+	if not Engine.is_editor_hint():
+		SignalBus.start_map_close.connect(reset)
 
 func reset() -> void:
 	existing_rooms = []
@@ -54,7 +56,7 @@ func _process(delta: float) -> void:
 	#		if possible, merge rooms
 	#		move turn and move at random 
 	#	start with "check if room is creatable" again
-func create_rooms() -> void:
+func create_rooms():
 	create_room()
 	turn_random_direction(true)
 	while(existing_rooms.size() < maximum_rooms):

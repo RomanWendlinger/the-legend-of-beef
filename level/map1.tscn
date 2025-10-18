@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b3w4cdvomh5ps"]
+[gd_scene load_steps=17 format=4 uid="uid://b3w4cdvomh5ps"]
 
 [ext_resource type="Script" uid="uid://mlrt2xbqf676" path="res://level/map_1.gd" id="1_x2nsn"]
 [ext_resource type="Script" uid="uid://bu8twdsyqkjst" path="res://enemies/enemy_spawner.gd" id="2_0mbol"]
@@ -9,27 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://fl14bp1avhb1" path="res://enemies/enemy_rat.tscn" id="6_8h20c"]
 [ext_resource type="PackedScene" uid="uid://ba38nj0btldu" path="res://enemies/enemy_skelly.tscn" id="7_k853c"]
 [ext_resource type="PackedScene" uid="uid://hyo4fheurf6a" path="res://enemies/enemy_ghoul.tscn" id="7_tjhul"]
-[ext_resource type="Script" uid="uid://d3jxh40rncv1r" path="res://addons/wfc/nodes/generator_2d.gd" id="8_ho4ds"]
 [ext_resource type="PackedScene" uid="uid://31ylsc7xyikq" path="res://enemies/enemy_blobman.tscn" id="8_tjhul"]
 [ext_resource type="PackedScene" uid="uid://lyi1k2as5ibc" path="res://enemies/enemy_goblin.tscn" id="8_tpro3"]
-[ext_resource type="Script" uid="uid://douto1nsqbvyv" path="res://addons/wfc/solver/solver_settings.gd" id="9_8pvme"]
 [ext_resource type="Script" uid="uid://bf17ls25tbdt2" path="res://level/map_cluster_loader.gd" id="11_71hfl"]
 [ext_resource type="Script" uid="uid://wq4yvi4md1ry" path="res://level/room_generator.gd" id="11_jybjd"]
 [ext_resource type="PackedScene" uid="uid://b47jkx1ecyfor" path="res://enemies/enemy_bigger_goblin.tscn" id="11_tpro3"]
+[ext_resource type="Script" uid="uid://dty5vcgcgns8d" path="res://level/destructible_spawner.gd" id="16_destructible"]
 
 [sub_resource type="Environment" id="Environment_eckay"]
 background_mode = 3
 adjustment_enabled = true
 adjustment_contrast = 1.16
-
-[sub_resource type="Resource" id="Resource_uu3pm"]
-script = ExtResource("9_8pvme")
-allow_backtracking = true
-require_backtracking = false
-backtracking_limit = -1
-sparse_history_start = 10
-sparse_history_interval = 10
-force_ac3 = true
 
 [node name="Main" type="Node"]
 script = ExtResource("1_x2nsn")
@@ -70,6 +60,9 @@ enemy_number_max_deviation = 2
 big_boi_files = Array[PackedScene]([ExtResource("7_tjhul"), ExtResource("8_tjhul"), ExtResource("11_tpro3")])
 big_boi_room_numbers = Array[int]([9])
 
+[node name="DestructibleSpawner" type="Node" parent="Geometry"]
+script = ExtResource("16_destructible")
+
 [node name="Camera2D" type="Camera2D" parent="Geometry"]
 position = Vector2(594.493, 401.451)
 scale = Vector2(1, 1.034)
@@ -77,20 +70,14 @@ position_smoothing_speed = 30.0
 script = ExtResource("5_ju02a")
 margin = Vector2(200, 200)
 
-[node name="WFC2DGenerator" type="Node" parent="Geometry"]
-script = ExtResource("8_ho4ds")
-target = NodePath("../wall_layer")
-rect = Rect2i(3, 9, 119, 67)
-positive_sample = NodePath("../example")
-solver_settings = SubResource("Resource_uu3pm")
-
-[node name="RoomGenerator" type="Node" parent="Geometry"]
+[node name="RoomGenerator" type="Node" parent="Geometry" node_paths=PackedStringArray("existing_rooms")]
 script = ExtResource("11_jybjd")
-position = Vector2i(22, 29)
-direction = Vector2i(-1, 0)
+position = Vector2i(-156, 22)
+direction = Vector2i(0, 1)
 min_walk_distance = 40
 max_walk_distance = 60
 corridor_width = 10
+existing_rooms = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 maximum_rooms = 10
 min_room_size = 20
 max_room_size = 30
@@ -107,6 +94,9 @@ wall_layer = NodePath("../wall_layer")
 ground_layer = NodePath("../ground_layer")
 tile_size = Vector2i(16, 16)
 terrain_ground_id = 1
-background_filler_atlas_coords = Array[Vector2i]([Vector2i(12, 0), Vector2i(13, 0), Vector2i(14, 0), Vector2i(12, 1), Vector2i(13, 1), Vector2i(14, 1)])
+background_filler_atlas_coords = Array[Vector2i]([Vector2i(12, 0), Vector2i(13, 0), Vector2i(14, 0)])
+fade_duration = 2.0
+screen_fade_color = Color(0, 0.686275, 0, 1)
+initial_load_tiles_per_frame = null
 
 [node name="UI" type="CanvasLayer" parent="."]

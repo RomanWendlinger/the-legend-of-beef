@@ -1,3 +1,4 @@
+@tool 
 extends Node
 class_name Room
 
@@ -16,7 +17,8 @@ func _init() -> void:
 	max_room_number += 1
 	print("room number ",room_number)
 	
-	SignalBus.start_map_close.connect(reset)
+	if not Engine.is_editor_hint():
+		SignalBus.start_map_close.connect(reset)
 	
 func reset() -> void:
 	max_room_number = 0

@@ -1,0 +1,140 @@
+{
+	"categories": [
+		{
+			"uuid": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "e610c515-a306-41d1-942a-076047741866",
+			"title": "Todo",
+			"tasks": [
+				"ca350016-fb5f-4965-9b87-80acba3bf7aa",
+				"7c029608-1ffb-4770-903e-f97eefefb981",
+				"7824f774-3044-4dbc-b90a-f8bde8d16e7a",
+				"757c1efc-5224-4809-9a6f-ff711c6185fb",
+				"77c4eb26-14c0-4503-9597-f22f01871044",
+				"4bd211b3-773b-49e8-8cb8-d57ae251599e",
+				"fb1f009b-db42-4274-a99f-8d0d09db802b",
+				"e000fbc8-c889-4b27-84ea-2deef63b3e34",
+				"54932c86-a0f7-4965-a07a-4955dc88a544",
+				"1e9d72d3-befb-4eeb-95bf-83d12e27002d"
+			]
+		},
+		{
+			"uuid": "f915c455-4d0b-4567-a367-bf4a955af2fc",
+			"title": "Doing",
+			"tasks": [
+				"ca3f4102-7543-409f-b06d-87b55b311b93"
+			]
+		},
+		{
+			"uuid": "8a4c9b3f-e1da-4029-81de-c35da16fc8bb",
+			"title": "Done",
+			"tasks": [
+				"d111729a-3abf-4078-8e2b-f5865898179a"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "ca350016-fb5f-4965-9b87-80acba3bf7aa",
+			"title": "shop scaling",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "7c029608-1ffb-4770-903e-f97eefefb981",
+			"title": "shop coin scaling lower start",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "7824f774-3044-4dbc-b90a-f8bde8d16e7a",
+			"title": "enemy hole knockback to not enter instantly",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "757c1efc-5224-4809-9a6f-ff711c6185fb",
+			"title": "beer UI!",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "77c4eb26-14c0-4503-9597-f22f01871044",
+			"title": "lightning aimer not going through walls",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "4bd211b3-773b-49e8-8cb8-d57ae251599e",
+			"title": "more monster",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "fb1f009b-db42-4274-a99f-8d0d09db802b",
+			"title": "more weapons",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "e000fbc8-c889-4b27-84ea-2deef63b3e34",
+			"title": "Rooms -> more spawn points",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "54932c86-a0f7-4965-a07a-4955dc88a544",
+			"title": "Rooms -> show monsters earlier",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "1e9d72d3-befb-4eeb-95bf-83d12e27002d",
+			"title": "sounds",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "d111729a-3abf-4078-8e2b-f5865898179a",
+			"title": "use terrain for tilemap",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "ca3f4102-7543-409f-b06d-87b55b311b93",
+			"title": "create threads for terrain loading",
+			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"e610c515-a306-41d1-942a-076047741866"
+			],
+			[
+				"f915c455-4d0b-4567-a367-bf4a955af2fc"
+			],
+			[
+				"8a4c9b3f-e1da-4029-81de-c35da16fc8bb"
+			]
+		]
+	}
+}

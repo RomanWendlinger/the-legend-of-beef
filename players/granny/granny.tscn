@@ -4,4 +4,5 @@
 [ext_resource type="Resource" uid="uid://c0mgqjjlt1as0" path="res://items/weapons/knife/knife.tres" id="2_seagr"]
 
 [node name="Character" instance=ExtResource("1_rdgll")]
+speed = 300.0
 current_weapon = ExtResource("2_seagr")

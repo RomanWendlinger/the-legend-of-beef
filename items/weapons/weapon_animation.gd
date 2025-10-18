@@ -53,7 +53,7 @@ func set_direction(direction: Vector2) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy_character") or body is TileMapLayer:
+	if body.is_in_group("enemy_character") or body is TileMapLayer or body.is_in_group("damageable"):
 		enemy_hit.emit(body, hurtBox.global_position)
 		if(remove_animation_on_hit):
 			if(!self.is_queued_for_deletion()):

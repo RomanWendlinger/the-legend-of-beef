@@ -37,7 +37,7 @@ project/assembly_name="The Legend of Beef"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/wfc/plugin.cfg")
+enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/wfc/plugin.cfg")
 
 [global_group]
 
@@ -48,6 +48,7 @@ gui_player_box=""
 player_weapon_hurtbox=""
 enemy_spawn_point=""
 player_spawn_point="place for players to spawn"
+damageable="destroyable stuff"
 
 [gui]
 
@@ -154,6 +155,7 @@ ui_select={
 2d_physics/layer_3="Items"
 2d_physics/layer_4="player_weapon"
 2d_physics/layer_5="world_environment"
+2d_physics/layer_6="destructible"
 
 [rendering]
 

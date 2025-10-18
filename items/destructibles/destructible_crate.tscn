@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjtm6ytlj0jl8"]
+
+[ext_resource type="Script" uid="uid://dkufh1nv307a7" path="res://items/destructibles/destructible_crate.gd" id="1_crate"]
+[ext_resource type="Script" uid="uid://dkn7fg711gni5" path="res://components/health_component.gd" id="2_health"]
+[ext_resource type="Texture2D" uid="uid://n46fgumyxf76" path="res://assets/Destructible Objects Sprite Sheet.png" id="3_g6cxj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_73155"]
+diffuse_texture = ExtResource("3_g6cxj")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1mik"]
+radius = 8.0
+
+[node name="DestructibleCrate" type="StaticBody2D"]
+collision_layer = 32
+script = ExtResource("1_crate")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_health")
+health = 10.0
+max_health = 10.0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(-6, 2)
+scale = Vector2(1.2722, 0.139792)
+texture = SubResource("CanvasTexture_73155")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-6, -11)
+texture = SubResource("CanvasTexture_73155")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -5)
+shape = SubResource("CircleShape2D_s1mik")
