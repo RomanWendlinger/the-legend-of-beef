@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bdphv6f7bl5o1"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bdphv6f7bl5o1"]
 
 [ext_resource type="StyleBox" uid="uid://dd8fdtlqwo6cp" path="res://theme/button_focus.tres" id="1_omc1r"]
 [ext_resource type="StyleBox" uid="uid://cryx7y0xq1tk7" path="res://theme/button_hover.tres" id="2_gw4il"]
 [ext_resource type="StyleBox" uid="uid://db1765yg65ypq" path="res://theme/button_default.tres" id="3_ytln0"]
+[ext_resource type="StyleBox" uid="uid://dece74arwfnta" path="res://assets/gui/panel_box.tres" id="4_gco77"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb3vf"]
 bg_color = Color(0.964706, 0.231373, 0.231373, 1)
@@ -19,6 +20,34 @@ border_width_top = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_gco77"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 0.396078)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6l1ye"]
+gradient = SubResource("Gradient_gco77")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ytkp"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = SubResource("GradientTexture1D_6l1ye")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="Gradient" id="Gradient_rucdj"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.768627, 0.117647, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_omiwu"]
+gradient = SubResource("Gradient_rucdj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wxyd"]
+texture = SubResource("GradientTexture1D_omiwu")
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/constants/align_to_largest_stylebox = 1
@@ -32,7 +61,16 @@ Button/styles/normal = ExtResource("3_ytln0")
 HealthBar/base_type = &"ProgressBar"
 HealthBar/styles/background = SubResource("StyleBoxFlat_wb3vf")
 HealthBar/styles/fill = SubResource("StyleBoxFlat_8lqtm")
+Label/font_sizes/font_size = 32
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
+Panel/styles/panel = ExtResource("4_gco77")
+PanelContainer/styles/panel = ExtResource("4_gco77")
+ProgressBar/colors/font_color = Color(1, 1, 0.929412, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 4
+ProgressBar/font_sizes/font_size = 28
+ProgressBar/styles/background = SubResource("StyleBoxTexture_4ytkp")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_5wxyd")

@@ -11,6 +11,13 @@ class_name EnemySpawner
 ## this is 0 indexed as always, so at 10 rooms the last room is 9
 @export var big_boi_room_numbers : Array[int]
 
+@export_group("Level End")
+@export var level_end_hole_scene: PackedScene
+@export var coin_scene: PackedScene
+@export var knockback_strength := 400.0
+@export var coin_ring_radius := 80.0
+@export var coin_count := 12
+
 var enemy_spawners: Array[Node]
 
 var rng : RandomNumberGenerator
@@ -79,5 +86,37 @@ func _put_enemy_on_map(enemyNode: Node2D, position: Vector2) -> void:
 	get_tree().root.get_node("Main").call_deferred("add_child", enemyNode)
 	
 func final_boss_defeated(position: Vector2) -> void:
+	# Apply knockback to all players
+	var players = get_tree().get_nodes_in_group("player_character")
+	for player in players:
+		if player is Player:
+			var direction = position.direction_to(player.global_position).normalized()
+			player.push_back(direction * knockback_strength)
+
+	# Spawn the level end hole
+	if level_end_hole_scene:
+		var hole = level_end_hole_scene.instantiate()
+		hole.global_position = position
+		get_tree().root.get_node("Main").call_deferred("add_child", hole)
+
+	# Spawn coins in a ring around the hole
+	if coin_scene:
+		spawn_coin_ring(position)
+
 	SignalBus.create_level_end_hole.emit(position)
-	pass
+
+func spawn_coin_ring(center_position: Vector2) -> void:
+	var angle_step = TAU / coin_count  # TAU = 2*PI
+	for i in range(coin_count):
+		# Add some randomness to the angle and radius
+		var angle = i * angle_step + randf_range(-0.2, 0.2)
+		var radius = coin_ring_radius + randf_range(-15.0, 15.0)
+
+		# Calculate coin position
+		var offset = Vector2(cos(angle), sin(angle)) * radius
+		var coin_position = center_position + offset
+
+		# Instantiate and place coin
+		var coin = coin_scene.instantiate()
+		coin.global_position = coin_position
+		get_tree().root.get_node("Main").call_deferred("add_child", coin)

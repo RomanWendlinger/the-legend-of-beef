@@ -1,0 +1,21 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://dece74arwfnta"]
+
+[ext_resource type="Texture2D" uid="uid://c3ua2ph7rcy4a" path="res://assets/gui/Border All 6.png" id="1_kxkg5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gco77"]
+atlas = ExtResource("1_kxkg5")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = SubResource("AtlasTexture_gco77")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 64, 64)

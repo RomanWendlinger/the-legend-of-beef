@@ -39,7 +39,11 @@ func instant_attack() -> void:
 	remove_animation_element()
 	
 func remove_animation_element() -> void:
-	
+	# Disable collision detection to prevent signals after queue_free
+	if hurtBox:
+		hurtBox.set_deferred("monitoring", false)
+		hurtBox.set_deferred("monitorable", false)
+
 	animation_player.play("RESET")
 	attack_finished.emit()
 	if(!self.is_queued_for_deletion()):

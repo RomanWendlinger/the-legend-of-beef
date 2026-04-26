@@ -11,30 +11,33 @@
 			"uuid": "e610c515-a306-41d1-942a-076047741866",
 			"title": "Todo",
 			"tasks": [
+				"757c1efc-5224-4809-9a6f-ff711c6185fb",
 				"ca350016-fb5f-4965-9b87-80acba3bf7aa",
 				"7c029608-1ffb-4770-903e-f97eefefb981",
 				"7824f774-3044-4dbc-b90a-f8bde8d16e7a",
-				"757c1efc-5224-4809-9a6f-ff711c6185fb",
 				"77c4eb26-14c0-4503-9597-f22f01871044",
 				"4bd211b3-773b-49e8-8cb8-d57ae251599e",
 				"fb1f009b-db42-4274-a99f-8d0d09db802b",
 				"e000fbc8-c889-4b27-84ea-2deef63b3e34",
 				"54932c86-a0f7-4965-a07a-4955dc88a544",
-				"1e9d72d3-befb-4eeb-95bf-83d12e27002d"
+				"1e9d72d3-befb-4eeb-95bf-83d12e27002d",
+				"bd24d7d4-6967-4392-8baf-2edea825c4f5",
+				"a74c66d0-3b77-4d35-a88a-3e112676f632",
+				"d16878c8-288c-4ae4-84c6-b21b351975b6",
+				"4985aa66-edeb-4744-b85b-4bd44438ffea"
 			]
 		},
 		{
 			"uuid": "f915c455-4d0b-4567-a367-bf4a955af2fc",
 			"title": "Doing",
-			"tasks": [
-				"ca3f4102-7543-409f-b06d-87b55b311b93"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "8a4c9b3f-e1da-4029-81de-c35da16fc8bb",
 			"title": "Done",
 			"tasks": [
-				"d111729a-3abf-4078-8e2b-f5865898179a"
+				"d111729a-3abf-4078-8e2b-f5865898179a",
+				"ca3f4102-7543-409f-b06d-87b55b311b93"
 			]
 		}
 	],
@@ -63,7 +66,7 @@
 		{
 			"uuid": "757c1efc-5224-4809-9a6f-ff711c6185fb",
 			"title": "beer UI!",
-			"description": "",
+			"description": "Let all the players drink\n4 quadrons, one for each player\nPlayer 1-4\nmaybe current avatar\nbeer graphic with amount/max amount and stuff\n-> when beer level set to 0\n-> small overlay (new beer? yes/no)\n-> kick old bottle of the screen\n-> swap focus to max-amount and let it set the amount\n-> jump back to default flow of setting the current level\n-> -> up the maximum bottle count\n\nset current target for drinkage?\n-> ress?\n-> set minimum amount?\n - set visual marking for minimum amount\n-> show in center (progress bar)\n",
 			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
 			"steps": []
 		},
@@ -120,6 +123,34 @@
 			"uuid": "ca3f4102-7543-409f-b06d-87b55b311b93",
 			"title": "create threads for terrain loading",
 			"description": "",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "bd24d7d4-6967-4392-8baf-2edea825c4f5",
+			"title": "Beer scaling ",
+			"description": "create scaling for ahead/behind of curve \n- stats boost\n- optical stuf",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "a74c66d0-3b77-4d35-a88a-3e112676f632",
+			"title": "nav mesh for monster",
+			"description": "Monster get stuck on corners etc. \ncreate a nav mesh for monster to navigate\n- connect nav mesh on room creation\n- connect nav mesh on corridor creation\n",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "d16878c8-288c-4ae4-84c6-b21b351975b6",
+			"title": "Character Scaling mechanic",
+			"description": "Let player stats scale with different sources\n- BeerManager gets involved\n- Pickups from shop\n- maybe random pickups \n\nmaybe classic increase/more additive/multiplicative mechanic?\n",
+			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
+			"steps": []
+		},
+		{
+			"uuid": "4985aa66-edeb-4744-b85b-4bd44438ffea",
+			"title": "Meta game leaderboard UI",
+			"description": "Needs a place outside of game / independent of it\nto show current Beer Stats from BeerManager\n",
 			"category": "5231e6c3-6c99-4ead-9a1e-aafac61396d7",
 			"steps": []
 		}

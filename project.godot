@@ -23,6 +23,7 @@ GuiManager="*res://global_scripts/gui_manager.gd"
 SignalBus="*res://global_scripts/signal_bus.gd"
 PickupManager="*res://global_scripts/pickup_manager.gd"
 ScalingManager="*res://global_scripts/scaling_manager.gd"
+BeerManager="*res://global_scripts/beer_manager.gd"
 
 [display]
 
@@ -52,7 +53,7 @@ damageable="destroyable stuff"
 
 [gui]
 
-theme/custom="res://theme/theme.tres"
+theme/custom="uid://bdphv6f7bl5o1"
 theme/custom_font="res://assets/fonts/ThaleahFat.ttf"
 
 [input]
@@ -144,6 +145,54 @@ ui_select={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":5,"axis_value":1.0,"script":null)
 ]
 }
+"P3 stick left"={
+"deadzone": 0.2,
+"events": []
+}
+"P3 stick right"={
+"deadzone": 0.2,
+"events": []
+}
+"P3 stick up"={
+"deadzone": 0.2,
+"events": []
+}
+"P3 stick down"={
+"deadzone": 0.2,
+"events": []
+}
+"P3 button 1"={
+"deadzone": 0.2,
+"events": []
+}
+"P3 button 2"={
+"deadzone": 0.2,
+"events": []
+}
+"P4 stick left"={
+"deadzone": 0.2,
+"events": []
+}
+"P4 stick right"={
+"deadzone": 0.2,
+"events": []
+}
+"P4 stick up"={
+"deadzone": 0.2,
+"events": []
+}
+"P4 stick down"={
+"deadzone": 0.2,
+"events": []
+}
+"P4 button 1"={
+"deadzone": 0.2,
+"events": []
+}
+"P4 button 2"={
+"deadzone": 0.2,
+"events": []
+}
 
 [layer_names]
 
@@ -159,4 +208,5 @@ ui_select={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"

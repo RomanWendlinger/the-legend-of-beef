@@ -1,137 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://cou2ykaq10wfo"]
+[gd_scene load_steps=8 format=3 uid="uid://cou2ykaq10wfo"]
 
 [ext_resource type="Theme" uid="uid://bdphv6f7bl5o1" path="res://theme/theme.tres" id="1_28s4d"]
 [ext_resource type="Script" uid="uid://0ux45vcdgw1o" path="res://gui_elements/beertime/beer_time.gd" id="1_dgh26"]
-[ext_resource type="PackedScene" uid="uid://ehayji4focn3" path="res://players/granny/granny_avatar.tscn" id="2_prdhh"]
-[ext_resource type="PackedScene" uid="uid://cmb7unmimmacc" path="res://gui_elements/beertime/beer_bottle.tscn" id="3_ahvps"]
-[ext_resource type="PackedScene" uid="uid://du3twm8cws7mo" path="res://gui_elements/controller/gui_button_element.tscn" id="4_cr0nc"]
-[ext_resource type="Texture2D" uid="uid://n83sgqdhwxxq" path="res://assets/controller/gdb-keyboard-2.png" id="5_8y5y8"]
-[ext_resource type="Texture2D" uid="uid://b5djdkmtfqfb3" path="res://assets/controller/gdb-xbox-2.png" id="6_1k8p0"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7h4pm"]
-line_spacing = 2.0
-font_size = 72
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_umtxb"]
-font_size = 35
-
-[sub_resource type="LabelSettings" id="LabelSettings_mu006"]
-font_size = 32
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4on6"]
-atlas = ExtResource("5_8y5y8")
-region = Rect2(320, 528, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qgfwy"]
-atlas = ExtResource("6_1k8p0")
-region = Rect2(384, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3u8ak"]
-atlas = ExtResource("5_8y5y8")
-region = Rect2(320, 544, 16, 16)
+[ext_resource type="PackedScene" uid="uid://2bixmb68yl25" path="res://gui_elements/beertime/player_drink_panel.tscn" id="2_lv5si"]
 
 [sub_resource type="Animation" id="Animation_4afje"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(451.5, 77)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/Label2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/MarginContainer:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
 
 [sub_resource type="Animation" id="Animation_6atiy"]
 resource_name = "start"
 length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.03333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(451.5, -500), Vector2(451.5, 77)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/Label2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.46667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/MarginContainer:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.43333, 1.93333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, false, true]
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(2.5, 2.86667)
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5pnhi"]
 _data = {
@@ -139,111 +17,144 @@ _data = {
 &"start": SubResource("Animation_6atiy")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_fnsi6"]
+font_size = 32
+
 [node name="BeerTime" type="CanvasLayer"]
 script = ExtResource("1_dgh26")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -148.5
-offset_top = -323.0
-offset_right = 148.5
-offset_bottom = 323.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5pnhi")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.141176)
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 129)
-layout_mode = 2
-text = "BEER TIME!"
-label_settings = SubResource("LabelSettings_7h4pm")
-horizontal_alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
 [node name="PlayerWrapper" type="HBoxContainer" parent="VBoxContainer" groups=["gui_beertime_player_wrapper"]]
 layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 
 [node name="PlayerContainer" type="MarginContainer" parent="VBoxContainer/PlayerWrapper" groups=["gui_beertime_player"]]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="P1Panel" parent="VBoxContainer/PlayerWrapper/PlayerContainer" instance=ExtResource("2_lv5si")]
+layout_mode = 2
+player_number = 1
+
+[node name="PlayerContainer2" type="MarginContainer" parent="VBoxContainer/PlayerWrapper" groups=["gui_beertime_player"]]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 theme = ExtResource("1_28s4d")
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
-[node name="vbox" type="VBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer"]
+[node name="P1Panel2" parent="VBoxContainer/PlayerWrapper/PlayerContainer2" instance=ExtResource("2_lv5si")]
 layout_mode = 2
+player_number = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
-visible = false
+[node name="PlayerWrapper2" type="HBoxContainer" parent="VBoxContainer" groups=["gui_beertime_player_wrapper"]]
 layout_mode = 2
-text = "Player 1"
-label_settings = SubResource("LabelSettings_umtxb")
-horizontal_alignment = 1
+size_flags_vertical = 3
+alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
-visible = false
+[node name="PlayerContainer3" type="MarginContainer" parent="VBoxContainer/PlayerWrapper2" groups=["gui_beertime_player"]]
 layout_mode = 2
-theme_override_constants/margin_bottom = 40
-
-[node name="GrannyAvatar" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/MarginContainer" instance=ExtResource("2_prdhh")]
-layout_mode = 2
-expand_mode = 5
-stretch_mode = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer"]
-layout_mode = 2
-
-[node name="BeerBottle" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer2" groups=["gui_beertime_beer"] instance=ExtResource("3_ahvps")]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "100g
-"
-label_settings = SubResource("LabelSettings_mu006")
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
+theme = ExtResource("1_28s4d")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer" instance=ExtResource("4_cr0nc")]
-custom_minimum_size = Vector2(0, 40)
+[node name="P1Panel3" parent="VBoxContainer/PlayerWrapper2/PlayerContainer3" instance=ExtResource("2_lv5si")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_w4on6")
-current_animation = "arrow_up"
-playing = true
+player_number = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer"]
+[node name="PlayerContainer4" type="MarginContainer" parent="VBoxContainer/PlayerWrapper2" groups=["gui_beertime_player"]]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme = ExtResource("1_28s4d")
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="P1Panel4" parent="VBoxContainer/PlayerWrapper2/PlayerContainer4" instance=ExtResource("2_lv5si")]
+layout_mode = 2
+player_number = 4
+
+[node name="Container" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -15.0
+offset_right = 48.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="Container"]
 layout_mode = 2
 
-[node name="ButtonElement" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_cr0nc")]
-custom_minimum_size = Vector2(40, 40)
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/PanelContainer"]
 layout_mode = 2
 
-[node name="TextureRect" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_cr0nc")]
+[node name="Label" type="Label" parent="Container/PanelContainer/VBoxContainer"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_qgfwy")
-expand_mode = 3
-stretch_mode = 4
-current_animation = "lb"
-frame_index = 1
-playing = true
+text = "REZZ PLAYER 1!"
+label_settings = SubResource("LabelSettings_fnsi6")
 
-[node name="TextureRect3" parent="VBoxContainer/PlayerWrapper/PlayerContainer/vbox/HBoxContainer/VBoxContainer" instance=ExtResource("4_cr0nc")]
-custom_minimum_size = Vector2(0, 40)
+[node name="ProgressBar" type="ProgressBar" parent="Container/PanelContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-texture = SubResource("AtlasTexture_3u8ak")
-current_animation = "arrow_down"
-playing = true
+value = 87.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_5pnhi")
-}
+[node name="Label2" type="Label" parent="Container/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0 / 250ml "
+label_settings = SubResource("LabelSettings_fnsi6")
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 3)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.5
+offset_right = 148.5
+offset_bottom = 96.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BEER TIME"

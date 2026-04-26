@@ -25,6 +25,9 @@ signal start_map_load
 signal start_pregame
 signal enter_new_groundlevel
 
+## Beertime!
+signal beer_time_start_animation_finished
+
 ## scene switching
 signal scene_transition(status: String)
 

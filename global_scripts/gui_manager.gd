@@ -84,11 +84,12 @@ func clear_current_gui() -> void:
 		gameover_gui_node.queue_free()
 	timer_gui_node.queue_free()
 	
-func start_beer_time(_player_number: int) -> void:
-	print("BEER TIME")
+func start_beer_time(player_number: int) -> void:
+	print("BEER TIME for Player ", player_number)
 	beer_time_gui_element = BEER_TIME.instantiate()
 	SignalBus.freeze_game_time.emit(true)
 	get_tree().root.get_node("Main").add_child(beer_time_gui_element)
+	beer_time_gui_element.set_player_number(player_number)
 	beer_time_gui_element.play_start_animation()
 		
 func scene_transition(status) -> void:

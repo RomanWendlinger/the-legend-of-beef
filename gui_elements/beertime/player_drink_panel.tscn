@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://2bixmb68yl25"]
+
+[ext_resource type="Script" uid="uid://bx5ibs7cadw5v" path="res://gui_elements/beertime/player_drink_panel.gd" id="1_sgpak"]
+[ext_resource type="PackedScene" uid="uid://cmb7unmimmacc" path="res://gui_elements/beertime/beer_bottle.tscn" id="1_tb0kt"]
+[ext_resource type="PackedScene" uid="uid://du3twm8cws7mo" path="res://gui_elements/controller/gui_button_element.tscn" id="2_sgpak"]
+[ext_resource type="Texture2D" uid="uid://n83sgqdhwxxq" path="res://assets/controller/gdb-keyboard-2.png" id="3_upln1"]
+[ext_resource type="Texture2D" uid="uid://b5djdkmtfqfb3" path="res://assets/controller/gdb-xbox-2.png" id="4_uqw1o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_umtxb"]
+font_size = 35
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4on6"]
+atlas = ExtResource("3_upln1")
+region = Rect2(320, 528, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvjvl"]
+atlas = ExtResource("4_uqw1o")
+region = Rect2(368, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u8ak"]
+atlas = ExtResource("3_upln1")
+region = Rect2(320, 544, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mu006"]
+font_size = 32
+
+[node name="Panel" type="PanelContainer"]
+script = ExtResource("1_sgpak")
+
+[node name="vbox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="vbox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Player 1"
+label_settings = SubResource("LabelSettings_umtxb")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="vbox"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="vbox"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="vbox/HBoxContainer"]
+layout_mode = 2
+
+[node name="BeerBottle" parent="vbox/HBoxContainer/VBoxContainer2" groups=["gui_beertime_beer"] instance=ExtResource("1_tb0kt")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="vbox/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" parent="vbox/HBoxContainer/VBoxContainer" instance=ExtResource("2_sgpak")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_w4on6")
+current_animation = "arrow_up"
+playing = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="vbox/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonElement" parent="vbox/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_sgpak")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="TextureRect" parent="vbox/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_sgpak")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vvjvl")
+expand_mode = 3
+stretch_mode = 4
+current_animation = "lb"
+playing = true
+
+[node name="TextureRect3" parent="vbox/HBoxContainer/VBoxContainer" instance=ExtResource("2_sgpak")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_3u8ak")
+current_animation = "arrow_down"
+playing = true
+
+[node name="DrinkLabel" type="Label" parent="vbox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100g / 500g"
+label_settings = SubResource("LabelSettings_mu006")
+horizontal_alignment = 1

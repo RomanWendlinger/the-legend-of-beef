@@ -30,6 +30,7 @@ var finished_players : Array[int]
 func _ready() -> void:
 	active_players = []
 	SceneSwitcher.on_map_close_functions.append(clear_current_scene)
+	SignalBus.player_died.connect(_on_player_died)
 	if OS.is_debug_build():
 		print("DEBUG BUILD")
 		set_player_active(1, true)
@@ -95,7 +96,15 @@ func spawn_player(player_number: int) -> Player:
 	get_tree().root.add_child(player_node)
 	return player_node
 	
-func emit_player_died(player_node): 
+func _on_player_died(player_number: int) -> void:
+	# Check if all players are dead
+	if active_players.all(func(p_num: int): return player_dict[str(p_num)].healthNode.is_dead):
+		SignalBus.all_player_died.emit()
+		return
+	# Otherwise trigger beer time for this specific player
+	SignalBus.managed_player_died.emit(player_number)
+
+func emit_player_died(player_node):
 	if active_players.all(func(player_number: int): return player_dict[str(player_number)].is_dead) :
 		SignalBus.all_player_died.emit()
 		return
