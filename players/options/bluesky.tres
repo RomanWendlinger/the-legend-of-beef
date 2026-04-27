@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterOption" format=3 uid="uid://char_option_bluesky"]
+
+[ext_resource type="Script" path="res://players/character_option.gd" id="1_charoption"]
+
+[resource]
+script = ExtResource("1_charoption")
+display_name = "Bluesky"
+scene_path = ""
+stats_path = ""
+preview_region = Rect2(0, 0, 32, 32)
+is_bluesky = true

@@ -1,9 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cueclr5q57igy"]
+[gd_scene load_steps=3 format=3 uid="uid://cueclr5q57igy"]
 
 [ext_resource type="PackedScene" uid="uid://bc7td43f5lh0a" path="res://players/player.tscn" id="1_rdgll"]
+[ext_resource type="Resource" path="res://players/granny/granny_stats.tres" id="2_granny"]
 
 [node name="Character" instance=ExtResource("1_rdgll")]
-speed = 300.0
-
-[node name="HealthComponent" parent="." index="4"]
-health = 140.0
+stat_budget = ExtResource("2_granny")

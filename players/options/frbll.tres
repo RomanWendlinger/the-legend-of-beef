@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterOption" format=3 uid="uid://char_option_frbll"]
+
+[ext_resource type="Script" path="res://players/character_option.gd" id="1_charoption"]
+[ext_resource type="Texture2D" uid="uid://bt00umqqjq5ji" path="res://assets/sprites/rogues.png" id="2_rogues"]
+
+[resource]
+script = ExtResource("1_charoption")
+display_name = "FRBLL"
+scene_path = "res://players/FRBLL.tscn"
+stats_path = "res://players/frbll_stats.tres"
+preview_texture = ExtResource("2_rogues")
+preview_region = Rect2(0, 128, 32, 32)
+is_bluesky = false

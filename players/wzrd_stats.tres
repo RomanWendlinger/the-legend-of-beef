@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StatBudget" format=3]
+
+[ext_resource type="Script" path="res://players/stat_budget.gd" id="1_wzrd"]
+
+[resource]
+script = ExtResource("1_wzrd")
+vit = 4
+str_stat = 9
+agi = 6
+tgh = 5

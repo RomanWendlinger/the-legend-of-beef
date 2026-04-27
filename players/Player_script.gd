@@ -10,6 +10,7 @@ var state: States = States.IDLE
 signal player_revived
 
 @export var is_frozen := true
+@export var stat_budget: StatBudget
 
 @export_group("Movement")
 @export var speed := 100.0
@@ -38,6 +39,13 @@ func _ready() -> void:
 	shadowNode = get_node("Shadow")
 	spriteNode = get_node("Character")
 	healthNode = get_node("HealthComponent")
+	if stat_budget != null:
+		speed = stat_budget.get_speed()
+		pushback_strength = stat_budget.get_pushback_strength()
+		current_weapon_damage_scale = stat_budget.get_damage_scale()
+		if healthNode != null:
+			healthNode.max_health = stat_budget.get_max_health()
+			healthNode.health = healthNode.max_health
 	SignalBus.freeze_game_time.connect(on_freeze_game_time)
 	SceneSwitcher.on_map_close_functions.append(hide_player_from_map)
 	SignalBus.start_pregame.connect(on_pregame)
@@ -59,6 +67,12 @@ func health_update(health: float, max_health: float) -> void:
 func player_died() -> void:
 	state = States.DEAD
 	SignalBus.player_died.emit(player_number)
+
+func take_damage(damage: float, impact_position: Vector2) -> void:
+	if healthNode == null:
+		return
+	healthNode.take_damage(damage, impact_position)
+	push_back(impact_position.direction_to(global_position).normalized() * pushback_strength)
 	
 func _physics_process(delta: float) -> void:
 	var direction =Input.get_vector("P"+str(player_number)+" stick left","P"+str(player_number)+" stick right", "P"+str(player_number)+" stick up", "P"+str(player_number)+" stick down");
@@ -172,7 +186,9 @@ func add_interactable(elem: Interactable) -> void:
 	interactable_stack.append(elem)
 	
 func remove_interactable(elem: Interactable) -> void:
-	interactable_stack.remove_at(interactable_stack.find(elem))
+	var idx := interactable_stack.find(elem)
+	if idx != -1:
+		interactable_stack.remove_at(idx)
 	
 func interact_with_stack() -> void:
 	if interactable_stack.size() > 0:

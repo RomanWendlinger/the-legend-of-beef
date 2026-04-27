@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dstatpanel001"]
+
+[ext_resource type="Script" path="res://gui_elements/stat_panel.gd" id="1_statpanel"]
+[ext_resource type="StyleBox" uid="uid://dece74arwfnta" path="res://assets/gui/panel_box.tres" id="2_panelbox"]
+
+[node name="StatPanel" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("2_panelbox")
+script = ExtResource("1_statpanel")
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VitLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "VIT  6"
+
+[node name="StrLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "STR  6"
+
+[node name="AgiLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "AGI  6"
+
+[node name="TghLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "TGH  6"

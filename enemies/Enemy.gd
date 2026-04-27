@@ -34,9 +34,11 @@ func _ready() -> void:
 	shadowNode = get_node("shadow")
 	monsterNode = get_node("monster")
 	getNearestPlayer()
+	# Parented to self so the timer auto-frees with the enemy. If/when you start
+	# it (recheck_timer.start(...)), the timeout connection won't outlive its receiver.
 	var recheck_timer = Timer.new()
 	recheck_timer.timeout.connect(getNearestPlayer)
-	get_tree().root.get_node("Main").add_child(recheck_timer)
+	add_child(recheck_timer)
 	
 
 
@@ -80,6 +82,8 @@ func returnClosestLocation(bestFetch: Player, newContender: Player):
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
+		if body.healthNode == null:
+			return
 		body.healthNode.take_damage(damage, global_position)
 		body.push_back(global_position.direction_to(body.global_position).normalized() * (linear_velocity.length() / mass ))
 		if not is_final_boss:
@@ -103,9 +107,12 @@ func take_damage(dmg, impact_position: Vector2) -> void:
 	
 
 func explode() -> void:
+	# Capture position before emit so listeners can't trip over a freed enemy
+	# if the order ever changes or someone defers the emit.
+	var pos := global_position
 	SignalBus.enemy_defeated.emit(self)
 	if is_final_boss:
-		SignalBus.final_boss_defeated.emit(global_position)
+		SignalBus.final_boss_defeated.emit(pos)
 	queue_free()
 	visible = false
 	set_process(false)

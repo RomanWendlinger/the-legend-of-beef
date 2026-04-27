@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://jo2hd78tisga"]
+
+[ext_resource type="Script" path="res://dev/qr_display_probe.gd" id="1_probe"]
+[ext_resource type="PackedScene" path="res://gui_elements/qr_display.tscn" id="2_qrdisplay"]
+
+[node name="QrDisplayProbe" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_probe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -220.0
+offset_right = 180.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QrDisplay" parent="VBoxContainer" instance=ExtResource("2_qrdisplay")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SwapButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Swap to URL B"
+
+[node name="UrlLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "(url shown here)"
+autowrap_mode = 3

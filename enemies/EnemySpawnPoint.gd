@@ -22,8 +22,9 @@ func add_check_zone() -> void:
 	collisionShape2d.shape = RectangleShape2D.new()
 	# area width = room_size * 16 + (margin * 2) * 16
 	check_zone.add_child(collisionShape2d)
-	get_tree().root.add_child(check_zone)
-	SceneSwitcher.on_map_close_functions.append(check_zone.queue_free)
+	# Parent to self so check_zone auto-frees with the spawn point and the
+	# body_entered → entered_check_zone connection can't fire on a freed receiver.
+	add_child(check_zone)
 	collisionShape2d.shape.size.x = (in_room.bottom_right.x - in_room.top_left.x) * 16 + (4 * 16)
 	collisionShape2d.shape.size.y = (in_room.bottom_right.y - in_room.top_left.y) * 16 + (4 * 16)
 	collisionShape2d.global_position = Vector2(in_room.center_position * Vector2i(16,16) + Vector2i(8,8))

@@ -24,6 +24,7 @@ SignalBus="*res://global_scripts/signal_bus.gd"
 PickupManager="*res://global_scripts/pickup_manager.gd"
 ScalingManager="*res://global_scripts/scaling_manager.gd"
 BeerManager="*res://global_scripts/beer_manager.gd"
+AuthManager="*res://global_scripts/auth_manager.gd"
 
 [display]
 

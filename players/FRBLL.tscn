@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc2jx43bb5wew"]
+[gd_scene load_steps=4 format=3 uid="uid://cc2jx43bb5wew"]
 
 [ext_resource type="PackedScene" uid="uid://bc7td43f5lh0a" path="res://players/player.tscn" id="1_cku1v"]
 [ext_resource type="Resource" uid="uid://b2vq7fqb43cbw" path="res://items/weapons/goop/goop.tres" id="2_7lmx8"]
+[ext_resource type="Resource" path="res://players/frbll_stats.tres" id="3_frbll"]
 
 [node name="Character" instance=ExtResource("1_cku1v")]
+stat_budget = ExtResource("3_frbll")
 current_weapon = ExtResource("2_7lmx8")
 
 [node name="Character" parent="." index="2"]

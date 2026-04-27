@@ -1,0 +1,168 @@
+[gd_scene load_steps=4 format=3 uid="uid://jql3cyxr7ej5"]
+
+[ext_resource type="Script" path="res://gui_elements/stat_allocator.gd" id="1_allocator"]
+[ext_resource type="StyleBox" uid="uid://dece74arwfnta" path="res://assets/gui/panel_box.tres" id="2_panelbox"]
+[ext_resource type="StyleBox" uid="uid://db1765yg65ypq" path="res://theme/button_default.tres" id="3_btndefault"]
+
+[node name="StatAllocator" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("2_panelbox")
+script = ExtResource("1_allocator")
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Row0" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/Row0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+size_flags_horizontal = 3
+text = "VIT"
+
+[node name="DecBtn" type="Button" parent="VBoxContainer/Row0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "[-]"
+focus_mode = 0
+
+[node name="ValLabel" type="Label" parent="VBoxContainer/Row0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+custom_minimum_size = Vector2(28, 0)
+horizontal_alignment = 1
+text = "6"
+
+[node name="IncBtn" type="Button" parent="VBoxContainer/Row0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "[+]"
+focus_mode = 0
+
+[node name="Row1" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/Row1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+size_flags_horizontal = 3
+text = "STR"
+
+[node name="DecBtn" type="Button" parent="VBoxContainer/Row1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "[-]"
+focus_mode = 0
+
+[node name="ValLabel" type="Label" parent="VBoxContainer/Row1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+custom_minimum_size = Vector2(28, 0)
+horizontal_alignment = 1
+text = "6"
+
+[node name="IncBtn" type="Button" parent="VBoxContainer/Row1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "[+]"
+focus_mode = 0
+
+[node name="Row2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/Row2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+size_flags_horizontal = 3
+text = "AGI"
+
+[node name="DecBtn" type="Button" parent="VBoxContainer/Row2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "[-]"
+focus_mode = 0
+
+[node name="ValLabel" type="Label" parent="VBoxContainer/Row2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+custom_minimum_size = Vector2(28, 0)
+horizontal_alignment = 1
+text = "6"
+
+[node name="IncBtn" type="Button" parent="VBoxContainer/Row2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "[+]"
+focus_mode = 0
+
+[node name="Row3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/Row3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+size_flags_horizontal = 3
+text = "TGH"
+
+[node name="DecBtn" type="Button" parent="VBoxContainer/Row3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "[-]"
+focus_mode = 0
+
+[node name="ValLabel" type="Label" parent="VBoxContainer/Row3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+custom_minimum_size = Vector2(28, 0)
+horizontal_alignment = 1
+text = "6"
+
+[node name="IncBtn" type="Button" parent="VBoxContainer/Row3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "[+]"
+focus_mode = 0
+
+[node name="Separator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TotalLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Total: 24/24"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = ""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ButtonRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SaveBtn" type="Button" parent="VBoxContainer/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "Save"
+focus_mode = 0
+
+[node name="CancelBtn" type="Button" parent="VBoxContainer/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_btndefault")
+text = "Cancel"
+focus_mode = 0

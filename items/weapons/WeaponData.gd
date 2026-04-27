@@ -18,7 +18,6 @@ class_name WeaponData
 @export var onHitAnimationScale := 1.0
 
 var anim: Node2D
-var on_hit_anim: Node2D
 
 var parent_node : Node
 
@@ -69,7 +68,8 @@ func on_enemy_hit(body: Node2D, impact_position: Vector2) -> void:
 		start_on_hit_animation(impact_position)
 		
 func on_enemy_on_hit_hit(body: Node2D, impact_position: Vector2) -> void:
-	body.take_damage(get_on_hit_damage(), impact_position)
+	if body.has_method("take_damage"):
+		body.take_damage(get_on_hit_damage(), impact_position)
 	
 #those two can be spiced with some modifiers later
 func get_damage() -> float:
@@ -80,7 +80,7 @@ func get_on_hit_damage() -> float:
 
 
 func start_on_hit_animation(impact_position: Vector2) -> void:
-	on_hit_anim = OnHitAnimation.instantiate()
+	var on_hit_anim: Node2D = OnHitAnimation.instantiate()
 	on_hit_anim.global_position = impact_position
 	parent_node.get_tree().root.add_child(on_hit_anim)
 	on_hit_anim.set_animation_speed_scale(onHitAnimationScale)

@@ -79,10 +79,17 @@ func scene_switch_main_menu() -> void:
 	SceneSwitcher.switch_scene("res://gui_elements/main_menu.tscn")
 	
 func clear_current_gui() -> void:
-	player_gui_node.queue_free()
-	if gameover_gui_node:
+	if is_instance_valid(player_gui_node):
+		player_gui_node.queue_free()
+	player_gui_node = null
+	if is_instance_valid(gameover_gui_node):
 		gameover_gui_node.queue_free()
-	timer_gui_node.queue_free()
+	gameover_gui_node = null
+	if is_instance_valid(timer_gui_node):
+		timer_gui_node.queue_free()
+	timer_gui_node = null
+	# on_map_close_functions is wiped each close — re-register so the next map closes cleanly
+	SceneSwitcher.on_map_close_functions.append(clear_current_gui)
 	
 func start_beer_time(player_number: int) -> void:
 	print("BEER TIME for Player ", player_number)

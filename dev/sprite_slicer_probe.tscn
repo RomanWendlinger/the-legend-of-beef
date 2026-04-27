@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy4dmlrmbhoyg"]
+
+[ext_resource type="Script" path="res://dev/sprite_slicer_probe.gd" id="1_probe"]
+
+[node name="SpriteslicerProbe" type="Node2D"]
+script = ExtResource("1_probe")

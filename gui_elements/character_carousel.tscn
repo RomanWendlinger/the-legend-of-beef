@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt0r2o722jymi"]
+
+[ext_resource type="Script" path="res://gui_elements/character_carousel.gd" id="1_charcarousel"]
+[ext_resource type="StyleBox" uid="uid://dece74arwfnta" path="res://assets/gui/panel_box.tres" id="2_panelbox"]
+
+[node name="CharacterCarousel" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("2_panelbox")
+script = ExtResource("1_charcarousel")
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ArrowLeft" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "◄ "
+
+[node name="Preview" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+text = "---"
+
+[node name="ArrowRight" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = " ►"

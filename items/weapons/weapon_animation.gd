@@ -36,9 +36,13 @@ func attack() -> void:
 func instant_attack() -> void:
 	animation_player.play("attack")
 	await animation_player.animation_finished
+	if is_queued_for_deletion():
+		return
 	remove_animation_element()
-	
+
 func remove_animation_element() -> void:
+	if is_queued_for_deletion():
+		return
 	# Disable collision detection to prevent signals after queue_free
 	if hurtBox:
 		hurtBox.set_deferred("monitoring", false)
@@ -46,8 +50,7 @@ func remove_animation_element() -> void:
 
 	animation_player.play("RESET")
 	attack_finished.emit()
-	if(!self.is_queued_for_deletion()):
-		self.queue_free()
+	self.queue_free()
 
 func set_animation_speed_scale(time: float) -> void:
 	animation_player.speed_scale = time
@@ -67,10 +70,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 func _on_on_hit_area_2d_body_entered(body: Node2D) -> void:
 	enemy_on_hit_hit.emit(body, hurtBox.global_position)
-	
-	# we need to remove the hitbox after a frame but keep the animation playing
-	# -> no double dipping the hitbox but still nice animation
-	call_deferred("remove_on_hit_hurtbox")
+	# Disable the hurtbox after this physics step so it can't double-dip,
+	# but the animation keeps playing. set_deferred is enough — wrapping in
+	# call_deferred would race against self being queue_freed.
+	remove_on_hit_hurtbox()
+
 func remove_on_hit_hurtbox() -> void:
+	if not is_instance_valid(hurtBox):
+		return
 	hurtBox.set_deferred("monitorable", false)
 	hurtBox.set_deferred("monitoring", false)

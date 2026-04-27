@@ -9,6 +9,7 @@ func _ready() -> void:
 	
 func enemy_defeated(enemy: Enemy) -> void:
 	var coinInstance = COIN.instantiate()
+	# enemy is queue_free'd right after this signal — read pos now, before the deferred add.
 	coinInstance.global_position = enemy.global_position
 	get_tree().root.call_deferred("add_child", coinInstance)
 	
